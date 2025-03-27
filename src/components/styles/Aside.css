@@ -1,0 +1,31 @@
+.aside-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.aside-content {
+    position: sticky;
+    top: 120px;
+    line-height: 4;
+    padding: 16px;
+    height: 80vh;
+    overflow-y: auto;
+}
+
+.aside-content h3 {
+    line-height: 2;
+}
+
+.aside-content ul {
+    list-style: none;
+}
+
+.aside-content li {
+    margin-left: 1rem;
+    border-bottom: 1px solid #ccc;
+}
+
+.aside-content a {
+    text-decoration: none;
+    color: inherit;
+}

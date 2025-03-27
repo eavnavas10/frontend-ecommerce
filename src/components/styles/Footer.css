@@ -1,0 +1,48 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  gap: 14px;
+  background-color: #333;
+  color: white;
+  text-align: center;
+  gap: 10px;
+  width: 100%;
+  z-index: 100;
+}
+
+.media-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.media-container img {
+  width: 36px;
+  height: 36px;
+}
+
+.copyright-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.copyright-link {
+  all: unset;
+  cursor: pointer;
+}
+
+.coconut-footer {
+  font-family: 'Bluestar Medium-Italic', sans-serif;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #ff3da1;
+}
+
+.fashion-footer {
+  font-family: 'TT Rounds Neue Trial DemiBold', sans-serif;
+  font-size: 1.1rem;
+  color: #ffffff;
+}
