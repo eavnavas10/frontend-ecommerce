@@ -17,7 +17,7 @@ export const Header = () => {
 
       <div className="logo-container">
         <NavLink to = '/' className='logo-link'>
-          <img src='../public/img/NEW coconut-logo-icon-nobg.png' alt="Coconut Fashion logo" className="logo-img" />
+          <img src="/img/NEW coconut-logo-icon-nobg.png" alt="Coconut Fashion logo" className="logo-img" />
           <div className="title-container">
             <span className="coconut">Coconut</span>
             <span className="fashion">Fashion</span>
