@@ -1,5 +1,6 @@
 import './App.css'
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom'
+import { HashRouter } from 'react-router-dom';
 
 import { HomePage } from './pages/HomePage'
 import { FavoritePage } from './pages/FavoritePage'
@@ -19,7 +20,7 @@ function App() {
 
   return (
     <>
-    <BrowserRouter>
+    <HashRouter>
 
       <Header />
       <NavBar />
@@ -40,7 +41,7 @@ function App() {
 
       <Footer />  
 
-    </BrowserRouter>
+    </HashRouter>
     </>
   )
 }
