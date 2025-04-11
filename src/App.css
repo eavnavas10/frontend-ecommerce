@@ -1,0 +1,16 @@
+.page-container{
+    padding-top: 120px;
+}
+
+/* ----- MEDIA QUERY == 900px / Tablets ----- */
+@media only screen and (max-width: 900px) {
+    
+}
+
+
+/* ----- MEDIA QUERY == 540px / Teléfonos ----- */
+@media only screen and (max-width: 540px){
+    .page-container{
+        padding-top: 130px;
+    }
+}

@@ -1,32 +1,115 @@
-.footer {
+.footer-container {
   display: flex;
   flex-direction: column;
-  padding: 10px;
-  gap: 14px;
-  background-color: #333;
-  color: white;
-  text-align: center;
-  gap: 10px;
   width: 100%;
-  z-index: 100;
+  padding: 24px 128px;
+  background-color: var(--layout-color);
+  color: var(--text-color-first);
+  z-index: 1000;
+  bottom: 0;
+}
+
+/* FOOTER - INFORMACIÓN DE LA PÁGINA */
+
+.info-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  line-height: 2;
+  padding-top: 24px;
+  padding-bottom: 48px;
 }
 
 .media-container{
   display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 16px;
+  flex-direction: column;
 }
 
-.media-container img {
-  width: 36px;
-  height: 36px;
+.fb-icon-container, .ig-icon-container, .wa-icon-container{
+  width: 40px;
+  height: 40px;
+  display: flex;
+  margin: 0;
+  align-items: center;
+  justify-content: center;  
+  color: #fff;
+  border-radius: 6px;
 }
+
+.footer-icon{
+  align-self: center;
+}
+
+.fb-icon-container{
+  background-color: var(--facebook-color);
+}
+
+.ig-icon-container{
+  background: var(--instagram-color);
+}
+
+.wa-icon-container{
+  background-color: var(--whatsapp-color);
+}
+
+.media-icons-container{
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  gap: 20px;
+}
+
+.media-icons-container a{
+  width: 40px;
+  height: 40px;
+}
+
+.media-container p, .about-us-container p, .policies-container p{
+  color: #e0e0e0;
+}
+
+.policies-container{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.about-us-container ul, .policies-container ul{
+  color: #e0e0e0;
+  list-style: none;
+}
+
+.policy-links {
+  list-style: none;
+}
+
+.policy-item a{
+  display: flex;
+  text-decoration: none;
+  color: #e0e0e0;
+}
+
+.policy-icon {
+  font-size: 1rem;
+  align-self: center;
+  margin-left: 5px;
+}
+
+.about-us-container{
+  display: flex;
+  flex-direction: column;
+}
+
+/* FOOTER - CRÉDITOS*/
 
 .copyright-container {
   display: flex;
   align-items: center;
-  justify-content: center;
+  border-top: 1px solid #888;
+  padding-top: 24px;
+  gap: 8px;
 }
 
 .copyright-link {
@@ -44,5 +127,55 @@
 .fashion-footer {
   font-family: 'TT Rounds Neue Trial DemiBold', sans-serif;
   font-size: 1.1rem;
-  color: #ffffff;
+  color: var(--color-white);
+}
+
+.developer-text{
+  color: var(--primary-color);
+}
+
+/* ----- MEDIA QUERY == 900px / Tablets ----- */
+@media only screen and (max-width: 900px) {
+
+  .info-container{
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  .media-container{
+    justify-content: center;
+    align-items: center;
+  }
+
+  .policies-container{
+    justify-items: center;
+    align-items: center;
+  }
+
+  .about-us-container{
+    justify-items: center;
+    align-items: center;
+  }
+
+  .about-us-container ul, .policies-container ul{
+    justify-items: center;
+  }
+
+  .copyright-container{
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .copyright-divider-line{
+    display: none;
+  }
+
+}
+
+/* ----- MEDIA QUERY == 540px / Smartphones ----- */
+@media only screen and (max-width: 540px) {
+
+  .footer-container {
+    padding: 24px 6px;
+  }
 }

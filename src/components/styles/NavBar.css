@@ -3,14 +3,15 @@
   position: fixed;
   top: 70px;
   width: 100%;
-  background-color: #333;    
   height: 50px;
+  background-color: var(--layout-color);  
   justify-content: space-evenly;
   align-items: center;
   transition: transform 0.6s cubic-bezier(0.77, 0, 0.18, 1), opacity 0.6s ease-in-out;
   overflow: auto;
   z-index: 999;
-  padding: 0 14px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 0 128px;
 }
   
 .nav-links {
@@ -24,7 +25,7 @@
 .nav-item a{
   display: flex;
   text-decoration: none;
-  color: white;
+  color: var(--text-color-first);
   font-size: 1rem;
   transition: color 0.3s ease;
 }
@@ -34,17 +35,26 @@
   align-self: center;
 }
 
-.nav-item a:hover {
-  color: #f4a261; /* Cambia el color del texto Y del icono */
+.nav-item .active {
+  color: var(--primary-color);
 }
 
+.nav-item a:hover {
+  color: var(--primary-color);
+}
+
+/* ----- MEDIA QUERY == 900px / Tablets ----- */
+@media only screen and (max-width: 900px) {
+  .nav-bar{
+    padding: 0 6px;
+  }
+}
   
-/* ----- MEDIA QUERY == 540px / RESPONSIVE ----- */
+/* ----- MEDIA QUERY == 540px / Smartphones ----- */
 @media only screen and (max-width: 540px) {
 
   .nav-bar {
     height: 60px;
-    padding: 0 6px;
   }
 
   .nav-bar.hidden {

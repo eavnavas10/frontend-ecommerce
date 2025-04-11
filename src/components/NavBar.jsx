@@ -22,27 +22,27 @@ export const NavBar = () => {
     <nav className={`nav-bar ${visible ? "visible" : "hidden"}`}>
       <ul className="nav-links">
         <li className="nav-item">
-          <NavLink to = '/'>
+          <NavLink className={({isActive}) => isActive ? 'active': ''} to = '/'>
             <UilEstate className="nav-icon" size="18" color="currentColor" />Inicio
           </NavLink>
         </li>
         <li className="nav-item">
-          <NavLink to = '/catalog'>
+          <NavLink className={({isActive}) => isActive ? 'active': ''} to = '/catalog'>
             <UilShoppingBag className="nav-icon" size="18" color="currentColor" />Catálogo
           </NavLink>
         </li>
         <li className="nav-item">
-          <NavLink to = '/offers'>
+          <NavLink className={({isActive}) => isActive ? 'active': ''} to = '/offers'>
             <UilTagAlt className="nav-icon" size="18" color="currentColor" />Ofertas
           </NavLink>
         </li>
         <li className="nav-item">
-          <NavLink to = '/shipments'>
+          <NavLink className={({isActive}) => isActive ? 'active': ''} to = '/shipments'>
             <UilBox className="nav-icon" size="18" color="currentColor" />Envíos
           </NavLink>
         </li>
         <li className="nav-item">
-          <NavLink to = '/contact-us'>
+          <NavLink className={({isActive}) => isActive ? 'active': ''} to = '/contact-us'>
             <UilPhone className="nav-icon" size="18" color="currentColor" />Contacto
           </NavLink>
         </li>
