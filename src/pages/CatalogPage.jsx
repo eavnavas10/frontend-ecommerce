@@ -35,16 +35,15 @@ export const CatalogPage = () => {
             </select>
           </div>
 
-          <div className="gender-filter-container">            
-            <datalist id="gender">
-              <option value="Todos"></option>
-              <option value="Hombre"></option>
-              <option value="Mujer"></option>
-              <option value="Niño"></option>
-              <option value="Niña"></option>
-            </datalist>
+          <div className="gender-filter-container">
             <label>Género </label>
-            <input list="gender" name="gender"/>
+            <select name="genero" id="gender">
+              <option value="Unisex">Todos</option>
+              <option value="Male">Hombre</option>
+              <option value="Female">Mujer</option>
+              <option value="Boy">Niño</option>
+              <option value="Girl">Niña</option>
+            </select>
           </div>
         </div>
 

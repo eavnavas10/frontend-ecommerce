@@ -39,8 +39,9 @@
 
 .sizes-filter-container select,
 .categories-filter-container select,
-.gender-filter-container input{
+.gender-filter-container select{
     width: 100%;
+    background-color: white;
     border-style: none;
     border-radius: 14px;
     padding: 10px;
