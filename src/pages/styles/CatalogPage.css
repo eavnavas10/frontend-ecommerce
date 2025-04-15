@@ -39,7 +39,7 @@
 
 .sizes-filter-container select,
 .categories-filter-container select,
-.gender-filter-container select{
+.gender-filter-container input{
     width: 100%;
     border-style: none;
     border-radius: 14px;
