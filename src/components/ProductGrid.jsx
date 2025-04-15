@@ -1,36 +1,16 @@
-import { useEffect, useState } from "react";
-import "./styles/ProductGrid.css";
+import React, { useEffect, useState } from "react";
+import "./styles/ProductGrid.css"
 
-export const ProductGrid = () => {
+export const ProductGrid = ({ fetchProducts }) => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:4000/api/products?populate=*")
-      .then((response) => response.json())
+    fetchProducts()
       .then((data) => {
-        if (!data.data || !Array.isArray(data.data)) return;
-  
-        const formattedProducts = data.data.map((item) => {
-          const firstImage = item.images?.[0];
-          const imageUrl = firstImage?.formats?.small?.url || firstImage?.url || "";
-  
-          return {
-            id: item.id,
-            title: item.title || "Sin título",
-            description: item.description || "Sin descripción",
-            oldPrice: item.oldPrice || undefined,
-            price: item.price || 0,
-            offer: item.offer || false,
-            qty: item.qty || 0,
-            sizes: item.sizes ? item.sizes.map((size) => size.size) : [],
-            image: imageUrl ? `http://localhost:4000${imageUrl}` : "",
-          };
-        });
-  
-        setProducts(formattedProducts);
+        if (data) setProducts(data);
       })
-      .catch((error) => console.error("Error fetching data:", error));
-  }, []);
+      .catch((err) => console.error("Error loading products", err));
+  }, [fetchProducts]);
   
 
   return (

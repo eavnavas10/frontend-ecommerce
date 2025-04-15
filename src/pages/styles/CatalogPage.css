@@ -1,11 +1,17 @@
-.section-title {
+.catalog-page-container{
+    padding: 0 128px;
+    display: flex;
+    flex-direction: column;
+}
+
+.catalog-page-title {
     text-align: center;
     font-size: 1.5rem;
     margin: 30px 0;
     position: relative;
 }
 
-.section-title::after {
+.catalog-page-title::after {
     content: "";
     position: absolute;
     left: 50%;
@@ -15,4 +21,53 @@
     width: 60px; /* largo de la línea */
     background-color: var(--secondary-color); /* puedes cambiar el color aquí */
     border-radius: 2px;
+}
+
+.filters-container{
+    display: flex;
+    justify-content: left;  
+    gap: 20px;
+}
+
+.sizes-filter-container,
+.categories-filter-container,
+.gender-filter-container{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.sizes-filter-container select,
+.categories-filter-container select,
+.gender-filter-container select{
+    width: 100%;
+    border-style: none;
+    border-radius: 14px;
+    padding: 10px;
+}
+
+
+/* ----- MEDIA QUERY == 900px / Tablets ----- */
+@media only screen and (max-width: 900px) {
+    .catalog-page-container {
+        padding: 0px;
+    }
+
+    .filters-container{
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0 24px;                
+    }
+
+  }
+
+/* ----- MEDIA QUERY == 540px / Smartphones ----- */
+@media only screen and (max-width: 540px) {
+    .filters-container{
+        display: flex;
+        flex-direction: column;
+        padding: 24px;
+        gap: 16px;
+    }
+
 }
