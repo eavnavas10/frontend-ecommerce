@@ -17,10 +17,11 @@ export const Header = () => {
 
       <div className="logo-container">
         <NavLink to = '/' className='logo-link'>
-          <img src="/img/NEW coconut-logo-icon-nobg.png" alt="Coconut Fashion logo" className="logo-img" />
+          <div className="icon-logo-container">
+            <img src="/img/NEW coconut-logo-icon-nobg.png" alt="Coconut Fashion logo" className="logo-img" />
+          </div>          
           <div className="title-container">
-            <span className="coconut">Coconut</span>
-            <span className="fashion">Fashion</span>
+          <img src="/img/coconut-fashion-title-header.png" alt="Coconut Fashion Title" className="title-img" />
           </div>
         </NavLink>
       </div>

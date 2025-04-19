@@ -119,19 +119,12 @@
 .copyright-link {
   all: unset;
   cursor: pointer;
+  display: flex;
+  align-items: center;
 }
 
-.coconut-footer {
-  font-family: 'Bluestar Medium-Italic', sans-serif;
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #ff3da1;
-}
-
-.fashion-footer {
-  font-family: 'TT Rounds Neue Trial DemiBold', sans-serif;
-  font-size: 1.1rem;
-  color: var(--color-white);
+.copyright-link img{
+  height: 20px;
 }
 
 .developer-text{

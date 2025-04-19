@@ -63,11 +63,9 @@ export const Footer = () => {
       </div>
 
       <div className='copyright-container'>          
-        <Link to = '/' className="copyright-link">                  
-          <p>
-          <span className="coconut-footer">Coconut </span>
-          <span className="fashion-footer">Fashion </span> 
-          © 2024</p>          
+        <Link to = '/' className="copyright-link">                            
+          <img src="/img/coconut-fashion-title-footer.png" alt="coconut-fashion-name"></img>
+          <span>© 2024</span>          
         </Link>
           <span className="copyright-divider-line">|</span>
           <p className="credits-text">Desarrollado por 

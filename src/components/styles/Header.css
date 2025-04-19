@@ -19,40 +19,35 @@
 }
 
 .hamburguer-btn-container {
-  display: none;
+  display: none;  
 }
 
 .logo-link {
   display: flex;
   align-items: center;
+  justify-content: left;
   text-decoration: none;
 }
 
-.logo-img {
-  width: 70px;
+.icon-logo-container {
+  display: flex;
   height: 70px;
-  margin-right: 5px;
+  align-items: center;
+}
+
+.icon-logo-container img{
+  height: 100%;
 }
 
 .title-container {
   display: flex;
-  flex-direction: column;
-  justify-content: center; /* Alinea verticalmente */
-  text-align: center; /* Alinea el texto al centro */
-  line-height: 1;
+  align-items: center;
+  width: auto;
+  height: 54px;
 }
 
-.coconut {
-  font-family: 'Bluestar Medium-Italic', sans-serif;
-  font-size: 1.7rem;
-  font-weight: bold;
-  color: #ff3da1;
-}
-
-.fashion {
-  font-family: 'TT Rounds Neue Trial DemiBold', sans-serif;
-  font-size: 1.3rem;
-  color: #fff;
+.title-container img{
+  height: 100%;
 }
 
 /* Contenedor de los iconos */
@@ -91,25 +86,11 @@
 @media only screen and (max-width: 900px) {
 
   .hamburguer-btn-container {
-    display: block;
-    margin-right: 5px;
+    display: block;  
   }
 
   .header-container{
     padding: 0 6px;
-  }
-
-  .logo-img {
-    width: 70px;
-    height: 70px;
-  }
-
-  .coconut {
-    font-size: 1.5rem;
-  }
-
-  .fashion {
-    font-size: 1.1rem;
   }
 
   .icons-container {
@@ -120,6 +101,15 @@
   
 /* ----- MEDIA QUERY == 540px / Smartphones ----- */
 @media only screen and (max-width: 540px) {
+
+  .icon-logo-container img{
+    width: 65px;
+    height: 65px;
+  }
+
+  .title-container img{
+    height: 45px;
+  }
 
   .icons-container {
     margin-right: 0;
