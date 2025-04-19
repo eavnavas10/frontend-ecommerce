@@ -1,4 +1,4 @@
-import {CarouselGalery} from "../components/CarouselGalery";
+import {SwiperAutoplay} from "../components/SwiperAutoplay";
 import './styles/HomePage.css';
 import React from 'react';
 
@@ -7,7 +7,7 @@ export const HomePage = () => {
     <div className="home-page-container">
 
       <div className="carousel-container">
-        <CarouselGalery />
+        <SwiperAutoplay></SwiperAutoplay>
       </div>
 
     </div>

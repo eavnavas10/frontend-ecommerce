@@ -1,0 +1,53 @@
+.mySwiper {    
+    width: 80%;
+}
+
+.mySwiper:hover {    
+    cursor: grab;
+}
+
+.mySwiper:active {    
+    cursor: grabbing;
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    aspect-ratio: 16/9;
+}
+
+.swiper-slide img{     
+    border-radius: 20px;
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+    color: var(--layout-color);
+}
+
+.swiper-pagination-bullet-active{
+    background: white;
+}
+
+/* ----- MEDIA QUERY == 900px / Tablets ----- */
+@media only screen and (max-width: 900px) {
+
+    .mySwiper {    
+        width: 90%;
+    }
+
+    .swiper-button-prev:after,
+    .swiper-button-next:after {
+        display: none;
+    }
+
+  }
+
+/* ----- MEDIA QUERY == 540px / Smartphones ----- */
+@media only screen and (max-width: 540px) {
+
+    .mySwiper {    
+        width: 100%;
+    }
+
+}
