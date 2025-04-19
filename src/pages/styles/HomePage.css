@@ -1,0 +1,24 @@
+.home-page-container{
+    padding: 0 128px;
+    display: flex;
+    flex-direction: column;
+}
+
+.carousel-container{
+    padding: 24px 0;
+}
+
+/* ----- MEDIA QUERY == 900px / Tablets ----- */
+@media only screen and (max-width: 900px) {
+
+    .home-page-container{
+        padding: 0 24px;
+    }
+
+  }
+
+/* ----- MEDIA QUERY == 540px / Smartphones ----- */
+@media only screen and (max-width: 540px) {
+
+
+}

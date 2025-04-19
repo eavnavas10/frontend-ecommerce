@@ -1,0 +1,33 @@
+.slick-prev::after,
+.slick-next::after {
+    color: black;
+}
+
+.carousel-imagen{
+    margin: 0;
+    display: flex;
+    aspect-ratio: 16 / 9;
+    width: 70%;
+    justify-self: center;
+    object-fit: cover;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+/* ----- MEDIA QUERY == 900px / Tablets ----- */
+@media only screen and (max-width: 900px) {
+
+    .carousel-imagen{
+        width: 80%;
+    }
+
+  }
+
+/* ----- MEDIA QUERY == 540px / Smartphones ----- */
+@media only screen and (max-width: 540px) {
+
+    .carousel-imagen{
+        width: 100%;
+    }
+
+}
