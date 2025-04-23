@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 import "./styles/Footer.css";
 
 export const Footer = () => {
+
   return (
     <footer className='footer-container'>
       <div className="info-container">
@@ -71,6 +72,7 @@ export const Footer = () => {
           <p className="credits-text">Desarrollado por 
             <span className="developer-text"> Ernesto Villatoro</span>
           </p>
+          
       </div>
     </footer>
   )
