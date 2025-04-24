@@ -1,11 +1,13 @@
 import React from 'react';
-import './styles/HamburguerButton.css';
+import "./styles/HamburguerButton.css";
 
-export const HamburguerButton = ({ setIsOpen }) => {
-
+export const HamburguerButton = ({ isOpen, toggleMenu }) => {
   return (
-    <label className="hamburger-menu">
-      <input type="checkbox" id="menu-toggle" onChange={(e) => setIsOpen(e.target.checked)}/>
+      <button 
+        className={`hamburger-button ${isOpen ? 'open' : ''}`} 
+        onClick={toggleMenu}
+        aria-label="Toggle menu"
+      >
       <svg 
         id="hamburger" 
         className="Header__toggle-svg" 
@@ -19,6 +21,6 @@ export const HamburguerButton = ({ setIsOpen }) => {
           <path id="bottom-line" d="M10,35 L50,35 Z"></path>
         </g>
       </svg>
-    </label>
+    </button>
   );
 };

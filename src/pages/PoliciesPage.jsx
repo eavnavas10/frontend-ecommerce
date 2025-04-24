@@ -103,7 +103,7 @@ export const PoliciesPage = () => {
       <div className="policies-page-container">
         <h2 className="policies-page-title">Nuestras Políticas</h2>
         <p className="policies-page-first-paragraph">
-          En Coconut Fashion agradecemos tu preferencia y confianza. A continuación, te compartimos nuestras políticas para brindarte un servicio claro, justo y responsable:
+        En <span style={{color:'var(--secondary-color)'}}>Coconut Fashion</span> agradecemos tu preferencia y confianza. A continuación, te compartimos nuestras políticas para brindarte un servicio claro, justo y responsable:
         </p>
 
         <div className="policies-page-items-container">
@@ -122,7 +122,7 @@ export const PoliciesPage = () => {
           ))}
         </div>
 
-        <p className="policies-page-last-paragraph">Si tienes alguna duda o consulta adicional, no dudes en contactarnos. ¡Estamos para ayudarte! 💖</p>
+        <p className="policies-page-last-paragraph">Si tienes alguna duda o consulta adicional, no dudes en contactarnos. ¡Estamos para ayudarte! 🥥💖</p>
       </div>
     </>
   )

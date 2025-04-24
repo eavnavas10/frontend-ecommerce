@@ -4,17 +4,18 @@
   position: relative;
   width: 40px;
   height: 30px;
+  background: none;
+  border: none;
+  padding: 0;
 }
 
-/* Ocultamos el checkbox, pero sigue funcionando */
-#menu-toggle {
-  position: absolute;
-  opacity: 0;
-  width: 40px;
-  height: 30px;
+.hamburger-button{
+  background: none;
+  border: none;
   cursor: pointer;
 }
 
+/* Estilos comunes de las líneas */
 #top-line,
 #bottom-line,
 #middle-line {
@@ -22,42 +23,42 @@
   transform-origin: center;
 }
 
-/* Animación cuando el checkbox está activado */
-#menu-toggle:checked ~ svg #top-line {
+/* Animación cuando el botón tiene clase 'open' */
+.hamburger-icon.open #top-line {
   animation: down-rotate 0.4s ease-out both;
 }
 
-#menu-toggle:checked ~ svg #bottom-line {
+.hamburger-icon.open #bottom-line {
   animation: up-rotate 0.4s ease-out both;
 }
 
-#menu-toggle:checked ~ svg #middle-line {
+.hamburger-icon.open #middle-line {
   animation: hide 0.4s ease-out forwards;
 }
 
-/* Animación inversa cuando se desactiva */
-#menu-toggle:not(:checked) ~ svg #top-line {
+/* Animación inversa cuando el botón NO tiene clase 'open' */
+.hamburger-icon:not(.open) #top-line {
   animation: down-rotate-reverse 0.3s ease-in both;
 }
 
-#menu-toggle:not(:checked) ~ svg #bottom-line {
+.hamburger-icon:not(.open) #bottom-line {
   animation: up-rotate-reverse 0.3s ease-in both;
 }
 
-#menu-toggle:not(:checked) ~ svg #middle-line {
+.hamburger-icon:not(.open) #middle-line {
   animation: show 0.3s ease-in forwards;
 }
 
-/* Animaciones */
+/* ANIMACIONES */
 @keyframes up-rotate {
   0% { transform: translateY(0px); }
-  30% { transform: translateY(-15px); } /* Ajustado de -10px a -15px */
+  30% { transform: translateY(-15px); }
   100% { transform: translateY(-15px) rotate(45deg) scale(0.9); }
 }
 
 @keyframes down-rotate {
   0% { transform: translateY(0px); }
-  30% { transform: translateY(15px); } /* Ajustado de 10px a 15px */
+  30% { transform: translateY(15px); }
   100% { transform: translateY(15px) rotate(-45deg) scale(0.9); }
 }
 
@@ -67,7 +68,6 @@
   100% { opacity: 0; }
 }
 
-/* Animaciones inversas */
 @keyframes up-rotate-reverse {
   0% { transform: translateY(-15px) rotate(45deg) scale(0.9); }
   70% { transform: translateY(-15px); }
