@@ -8,6 +8,7 @@ import { CatalogPage } from './pages/CatalogPage'
 import { OffersPage } from './pages/OffersPage'
 import { ShipmentsPage } from './pages/ShipmentsPage'
 import { ContactPage } from './pages/ContactPage'
+import { PoliciesPage } from './pages/PoliciesPage'
 import { NotFoundPage } from './pages/NotFoundPage'
 
 import { Header } from './components/Header'
@@ -34,6 +35,7 @@ function App() {
           <Route path='/offers' element = { <OffersPage/>} />                
           <Route path='/shipments' element = { <ShipmentsPage/>} />
           <Route path='/contact-us' element = { <ContactPage/>} />
+          <Route path='/policies' element = { <PoliciesPage/>} />
           <Route path='/*' element={ <NotFoundPage/> }/>        
         </Routes>
       </div>    

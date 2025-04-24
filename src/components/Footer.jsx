@@ -43,18 +43,18 @@ export const Footer = () => {
           <div className="policies-container">
             <h4>Políticas y condiciones</h4>
             <ul className="policy-links">
-              <li className="policy-item">
-                <Link to = "/shipments#shipments-policies">
+              <li className="policy-item-footer">
+                <Link to = "/policies#shipments-policies">
                   Políticas de envíos<UilAngleRightB className="policy-icon" size="18" color="currentColor" />
                 </Link>              
               </li>
-              <li className="policy-item">
-                <Link to = "/shipments#purchasing-policies">
+              <li className="policy-item-footer">
+                <Link to = "/policies#purchasing-policies">
                   Políticas de compras<UilAngleRightB className="policy-icon" size="18" color="currentColor" />
                 </Link>
               </li>
-              <li className="policy-item">
-                <Link to = "/shipments#store-policies">
+              <li className="policy-item-footer">
+                <Link to = "/policies#store-policies">
                   Políticas de tienda<UilAngleRightB className="policy-icon" size="18" color="currentColor" />
                 </Link>              
               </li>            

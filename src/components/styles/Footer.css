@@ -89,7 +89,7 @@
   list-style: none;
 }
 
-.policy-item a{
+.policy-item-footer a{
   display: flex;
   text-decoration: none;
   color: #e0e0e0;
