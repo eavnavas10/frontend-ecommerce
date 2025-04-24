@@ -2,7 +2,7 @@ import "./styles/Header.css";
 import React, { useState } from 'react';
 import { NavLink } from "react-router-dom";
 import { HamburguerButton } from './HamburguerButton';
-import { UilSearch, UilHeartAlt, UilShoppingCart } from '@iconscout/react-unicons';
+import { UilSearch, UilHeartAlt, UilShoppingCart, UilEstate } from '@iconscout/react-unicons';
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);

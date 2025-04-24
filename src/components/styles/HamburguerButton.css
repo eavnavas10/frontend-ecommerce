@@ -1,55 +1,44 @@
-.hamburger-menu {
-  display: inline-block;
-  cursor: pointer;
-  position: relative;
-  width: 40px;
-  height: 30px;
+.hamburger-button {
   background: none;
   border: none;
+  cursor: pointer;
   padding: 0;
 }
 
-.hamburger-button{
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-/* Estilos comunes de las líneas */
-#top-line,
-#bottom-line,
-#middle-line {
+/* Estilos comunes */
+.top-line,
+.middle-line,
+.bottom-line {
   transform-box: fill-box;
   transform-origin: center;
 }
 
-/* Animación cuando el botón tiene clase 'open' */
-.hamburger-icon.open #top-line {
+/* Animaciones cuando el componente está montado */
+.animate.open .top-line {
   animation: down-rotate 0.4s ease-out both;
 }
 
-.hamburger-icon.open #bottom-line {
+.animate.open .bottom-line {
   animation: up-rotate 0.4s ease-out both;
 }
 
-.hamburger-icon.open #middle-line {
+.animate.open .middle-line {
   animation: hide 0.4s ease-out forwards;
 }
 
-/* Animación inversa cuando el botón NO tiene clase 'open' */
-.hamburger-icon:not(.open) #top-line {
+.animate:not(.open) .top-line {
   animation: down-rotate-reverse 0.3s ease-in both;
 }
 
-.hamburger-icon:not(.open) #bottom-line {
+.animate:not(.open) .bottom-line {
   animation: up-rotate-reverse 0.3s ease-in both;
 }
 
-.hamburger-icon:not(.open) #middle-line {
+.animate:not(.open) .middle-line {
   animation: show 0.3s ease-in forwards;
 }
 
-/* ANIMACIONES */
+/* KEYFRAMES */
 @keyframes up-rotate {
   0% { transform: translateY(0px); }
   30% { transform: translateY(-15px); }
