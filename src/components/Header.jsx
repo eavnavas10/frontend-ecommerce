@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { NavLink } from "react-router-dom";
 import { HamburguerButton } from './HamburguerButton';
 import { UilSearch, UilHeartAlt, UilShoppingCart, UilEstate } from '@iconscout/react-unicons';
+import { SideMenu } from "./SideMenu";
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -40,20 +41,8 @@ export const Header = () => {
         </button>
       </div>
 
-      {/* Fondo oscuro */}
-      {isOpen && <div className="menu-overlay" onClick={handleCloseMenu}></div>}
+      <SideMenu isOpen={isOpen} toggleMenu={handleCloseMenu} />
 
-      {/* Menú lateral */}
-        <div className={`side-menu ${isOpen ? 'visible' : ''}`}>
-          <nav className="side-nav">
-            <NavLink to="/" onClick={handleCloseMenu}>Inicio</NavLink>
-            <NavLink to="/catalog" onClick={handleCloseMenu}>Catálogo</NavLink>
-            <NavLink to="/offers" onClick={handleCloseMenu}>Ofertas</NavLink>
-            <NavLink to="/shipments" onClick={handleCloseMenu}>Envíos</NavLink>
-            <NavLink to="/contact-us" onClick={handleCloseMenu}>Contacto</NavLink>
-            <NavLink to="/policies" onClick={handleCloseMenu}>Políticas</NavLink>
-          </nav>
-        </div>
     </header>
   );
 };

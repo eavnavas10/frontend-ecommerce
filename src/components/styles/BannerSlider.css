@@ -1,14 +1,17 @@
 .mySwiper {    
     width: 90%;
+    position: relative;
+    padding-bottom: 40px;
 }
 
-.mySwiper:hover {    
-    cursor: grab;
-}
-
-.mySwiper:active {    
-    cursor: grabbing;
-}
+.swiper-pagination {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 10;
+  }
 
 .swiper-slide {
     display: flex;

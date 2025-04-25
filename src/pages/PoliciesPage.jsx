@@ -28,7 +28,7 @@ export const PoliciesPage = () => {
   },
   {
     id: "purchasing-policies",
-    title: "🛒 Políticas de Compra y Apartado",
+    title: "🛒 Políticas de Compra",
     className: "purchasing-policies",
     items: [
       {
