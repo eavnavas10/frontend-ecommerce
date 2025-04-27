@@ -1,6 +1,4 @@
-import { query } from "./strapi";
-
-const STRAPI_HOST = "http://localhost:4000";
+import { query, STRAPI_HOST } from "./strapi";
 
 export async function getAllProducts() {
   return query("products?fields=title&fields=description&fields=oldPrice&fields=price&fields=offer&populate[sizes][fields]=size&populate[images][fields]=url")

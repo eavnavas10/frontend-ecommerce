@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from 'react-router-dom';
 import "./styles/ProductGrid.css"
 
 export const ProductGrid = ({ fetchProducts }) => {
@@ -17,6 +18,7 @@ export const ProductGrid = ({ fetchProducts }) => {
     <section className="products-container">
       <div className="products-grid">
         {products.map((product) => (
+          <Link key={product.id} to={`/productDetails/${product.id}`} className="product-card-link">
           <article key={product.id} className="product-card">            
             <div className="product-image-container">
               {product.offer && <span className="product-offer-tag">Oferta</span>}            
@@ -46,6 +48,7 @@ export const ProductGrid = ({ fetchProducts }) => {
               </div>
             </div>
           </article>
+          </Link>
         ))}
       </div>
     </section>

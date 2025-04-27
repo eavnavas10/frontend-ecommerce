@@ -3,13 +3,21 @@ import './styles/CatalogPage.css';
 import { ProductGrid } from '../components/ProductGrid';
 import { getAllProducts } from '../lib/get-all-products';
 import { getAllSizes } from '../lib/get-all-sizes';
+import { getAllCategories } from '../lib/get-all-categories';
 
 export const CatalogPage = () => {
   const [sizes, setSizes] = useState([]);
+  const [categories, setCategories] = useState([]);
 
   useEffect(() => {
     getAllSizes().then((data) => {
       setSizes(data);
+    });
+  }, []);
+
+  useEffect(() => {
+    getAllCategories().then((data) => {
+      setCategories(data);
     });
   }, []);
 
@@ -32,6 +40,9 @@ export const CatalogPage = () => {
             <label>Categorías </label>
             <select name="categorias" id="categories">
               <option value="">Todas</option>
+              {categories.map((category, index) => (
+                <option key={index} value={category.title}>{category.title}</option>
+              ))}
             </select>
           </div>
 

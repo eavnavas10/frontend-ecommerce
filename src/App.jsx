@@ -10,6 +10,7 @@ import { ShipmentsPage } from './pages/ShipmentsPage'
 import { ContactPage } from './pages/ContactPage'
 import { PoliciesPage } from './pages/PoliciesPage'
 import { NotFoundPage } from './pages/NotFoundPage'
+import { ProductDetails } from './pages/ProductDetails'
 
 import { Header } from './components/Header'
 import { NavBar } from './components/NavBar'
@@ -36,6 +37,7 @@ function App() {
           <Route path='/shipments' element = { <ShipmentsPage/>} />
           <Route path='/contact-us' element = { <ContactPage/>} />
           <Route path='/policies' element = { <PoliciesPage/>} />
+          <Route path="/productDetails/:id" element={<ProductDetails />} />
           <Route path='/*' element={ <NotFoundPage/> }/>        
         </Routes>
       </div>    

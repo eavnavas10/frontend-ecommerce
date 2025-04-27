@@ -9,6 +9,11 @@
   margin: 0 auto;
 }
 
+.product-card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
 .product-card {
   display: flex;
   flex-direction: column;
@@ -16,6 +21,7 @@
   background: #fff;
   border-radius: 12px;
   overflow: hidden;
+  height: 100%;
 }
 
 .product-image-container {
