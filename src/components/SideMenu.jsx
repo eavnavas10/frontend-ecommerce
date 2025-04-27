@@ -1,9 +1,19 @@
 import React from 'react';
+import { useEffect, useState } from "react";
 import "./styles/SideMenu.css";
-import { NavLink } from "react-router-dom";
-import { UilEstate, UilShoppingBag, UilTagAlt, UilBox, UilPhone, UilFileCheckAlt } from "@iconscout/react-unicons";
+import { Link, NavLink } from "react-router-dom";
+import { UilEstate, UilShoppingBag, UilTagAlt, UilBox, UilPhone, UilFileCheckAlt, UilApps, UilAngleRightB } from "@iconscout/react-unicons";
+import { getAllCategories } from "../lib/get-all-categories";
 
 export const SideMenu = ({ isOpen, toggleMenu }) => {
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    getAllCategories().then((data) => {
+      setCategories(data);
+    });
+  }, []);
+
   return (
     <>
       {/* Fondo oscuro */}
@@ -42,7 +52,27 @@ export const SideMenu = ({ isOpen, toggleMenu }) => {
               <NavLink to="/policies" onClick={toggleMenu}>
                 <UilFileCheckAlt className='side-nav-icon' size="18" color="currentColor" />Políticas
               </NavLink>
-            </li>              
+            </li>
+            <details>
+              <summary>
+              <UilApps className='side-nav-icon' size="18" color="currentColor" />Categorías
+                <span className="icon-wrapper">
+                  <UilAngleRightB className="side-nav-icon" size="20" color="currentColor" />
+                </span>
+              </summary>
+              {categories.map((category) => (
+                <li key={category.id} className="side-nav-item">
+                  <Link to="/" onClick={toggleMenu}>
+                  <img
+                    src={category.image || "/placeholder.svg"}
+                    alt={category.title}
+                    className="side-nav-category-icon"
+                  />
+                  {category.title}
+                  </Link>
+                </li>
+              ))}
+            </details>
           </ul>
         </nav>
       </div>
