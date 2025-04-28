@@ -2,7 +2,7 @@ import React from 'react';
 import { useEffect, useState } from "react";
 import "./styles/SideMenu.css";
 import { Link, NavLink } from "react-router-dom";
-import { UilEstate, UilShoppingBag, UilTagAlt, UilBox, UilPhone, UilFileCheckAlt, UilApps, UilAngleRightB } from "@iconscout/react-unicons";
+import { UilEstate, UilShoppingBag, UilTagAlt, UilBox, UilPhone, UilFileCheckAlt, UilApps, UilAngleDown } from "@iconscout/react-unicons";
 import { getAllCategories } from "../lib/get-all-categories";
 
 export const SideMenu = ({ isOpen, toggleMenu }) => {
@@ -57,7 +57,7 @@ export const SideMenu = ({ isOpen, toggleMenu }) => {
               <summary>
               <UilApps className='side-nav-icon' size="18" color="currentColor" />Categorías
                 <span className="icon-wrapper">
-                  <UilAngleRightB className="side-nav-icon" size="20" color="currentColor" />
+                  <UilAngleDown className="side-nav-icon" size="20" color="currentColor" />
                 </span>
               </summary>
               {categories.map((category) => (

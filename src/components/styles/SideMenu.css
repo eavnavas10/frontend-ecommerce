@@ -75,7 +75,7 @@
   }
   
   details[open] .icon-wrapper {
-    transform: rotate(90deg);
+    transform: rotate(-180deg);
   }
 
   details .side-nav-item{
@@ -87,6 +87,10 @@
     width: 20px;
     height: 20px;
     filter: brightness(0) saturate(100%) invert(100%) hue-rotate(180deg) saturate(500%) brightness(90%);
+  }
+
+  .side-nav-category-icon{
+    width: 10px;
   }
   
 
