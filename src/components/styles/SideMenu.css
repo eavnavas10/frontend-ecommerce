@@ -59,7 +59,7 @@
   }
   
   .side-nav-container summary::-webkit-details-marker {
-    display: none; /* Chrome, Safari */
+    display: none;
   }
 
   .icon-wrapper {

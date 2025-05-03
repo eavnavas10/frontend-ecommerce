@@ -35,8 +35,11 @@ html, body {
     --background-color: #f0f0f0;
     --layout-color: #252728;
 
-    --text-color-first: #fff;
-    --text-color-second: #808080;
+    --text-color-first: #333;
+    --text-color-second: #555;
+    --text-color-third: #808080;
+    --text-color-fourth: #e0e0e0;
+    --text-color-five: #fff;
 
     --primary-color: #2196F3;
     --primary-color-dark: #1664a3;
@@ -54,5 +57,6 @@ html, body {
         #9b36b7 85%,
         #515ecf);
     --whatsapp-color: #25d366;
+    --linkedin-color: #0b65c3;
 
 }

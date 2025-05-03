@@ -13,36 +13,38 @@ export const Header = () => {
   };
 
   return (
-    <header className="header-container"> 
-      <div className="hamburguer-btn-container">
-        <HamburguerButton isOpen={isOpen} toggleMenu={() => setIsOpen(!isOpen)} />
+    <header className="header-container">
+      <div className="header-content">
+        <div className="hamburguer-btn-container">
+          <HamburguerButton isOpen={isOpen} toggleMenu={() => setIsOpen(!isOpen)} />
+        </div>
+
+        <div className="logo-container">
+          <NavLink to='/' className='logo-link'>
+            <div className="icon-logo-container">
+              <img src="/img/coconut-fashion-icon-nobg.png" alt="Coconut Fashion logo" className="logo-img" />
+            </div>          
+            <div className="title-container">
+              <img src="/img/coconut-fashion-title-header.png" alt="Coconut Fashion Title" className="title-img" />
+            </div>
+          </NavLink>
+        </div>
+
+        <div className="icons-container">
+          <NavLink className={({ isActive }) => isActive ? 'favorite-link active' : 'favorite-link'} to='/favorite'>
+            <UilHeartAlt className='favorite-icon' color="currentColor" />
+          </NavLink>
+          <NavLink className={({ isActive }) => isActive ? 'shopping-cart-link active' : 'shopping-cart-link'} to='/shopping-cart'>
+            <UilShoppingCart className='shopping-cart-icon' color="currentColor" />
+          </NavLink>
+          <button className="search-button">
+            <UilSearch className='search-icon' color="currentColor" />
+          </button>
+        </div>
+
+        <SideMenu isOpen={isOpen} toggleMenu={handleCloseMenu} />
+        
       </div>
-
-      <div className="logo-container">
-        <NavLink to='/' className='logo-link'>
-          <div className="icon-logo-container">
-            <img src="/img/coconut-fashion-icon-nobg.png" alt="Coconut Fashion logo" className="logo-img" />
-          </div>          
-          <div className="title-container">
-            <img src="/img/coconut-fashion-title-header.png" alt="Coconut Fashion Title" className="title-img" />
-          </div>
-        </NavLink>
-      </div>
-
-      <div className="icons-container">
-        <NavLink className={({ isActive }) => isActive ? 'favorite-link active' : 'favorite-link'} to='/favorite'>
-          <UilHeartAlt className='favorite-icon' color="currentColor" />
-        </NavLink>
-        <NavLink className={({ isActive }) => isActive ? 'shopping-cart-link active' : 'shopping-cart-link'} to='/shopping-cart'>
-          <UilShoppingCart className='shopping-cart-icon' color="currentColor" />
-        </NavLink>
-        <button className="search-button">
-          <UilSearch className='search-icon' color="currentColor" />
-        </button>
-      </div>
-
-      <SideMenu isOpen={isOpen} toggleMenu={handleCloseMenu} />
-
     </header>
   );
 };

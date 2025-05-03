@@ -1,12 +1,15 @@
 .footer-container {
-  display: flex;
-  flex-direction: column;
   width: 100%;
-  padding: 24px 128px;
+  padding: 24px 20px;
   background-color: var(--layout-color);
   color: var(--text-color-first);
   z-index: 1000;
   bottom: 0;
+}
+
+.footer-content{
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 /* FOOTER - INFORMACIÓN DE LA PÁGINA */
@@ -23,6 +26,7 @@
 }
 
 .info-container h4{
+  color: var(--text-color-fourth);
   font-weight: 600;
 }
 
@@ -31,7 +35,10 @@
   flex-direction: column;
 }
 
-.fb-icon-container, .ig-icon-container, .wa-icon-container{
+.fb-icon-container,
+.ig-icon-container,
+.wa-icon-container,
+.in-icon-container{
   width: 40px;
   height: 40px;
   display: flex;
@@ -56,6 +63,10 @@
 
 .wa-icon-container{
   background-color: var(--whatsapp-color);
+}
+
+.in-icon-container{
+  background-color: var(--linkedin-color);
 }
 
 .media-icons-container{
@@ -92,7 +103,7 @@
 .policy-item-footer a{
   display: flex;
   text-decoration: none;
-  color: #e0e0e0;
+  color: var(--text-color-fourth);
 }
 
 .policy-icon {
@@ -114,6 +125,7 @@
   border-top: 1px solid #888;
   padding-top: 24px;
   gap: 8px;
+  color: var(--text-color-fourth);
 }
 
 .copyright-link {
@@ -129,6 +141,12 @@
 
 .developer-text{
   color: var(--primary-color);
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.developer-text:hover{
+  color: var(--primary-color-light);
 }
 
 /* ----- MEDIA QUERY == 900px / Tablets ----- */
