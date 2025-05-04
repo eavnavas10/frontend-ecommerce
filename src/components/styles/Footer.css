@@ -53,22 +53,6 @@
   align-self: center;
 }
 
-.fb-icon-container{
-  background-color: var(--facebook-color);
-}
-
-.ig-icon-container{
-  background: var(--instagram-color);
-}
-
-.wa-icon-container{
-  background-color: var(--whatsapp-color);
-}
-
-.in-icon-container{
-  background-color: var(--linkedin-color);
-}
-
 .media-icons-container{
   display: flex;
   align-items: center;
@@ -162,18 +146,10 @@
     gap: 48px;
   }
 
-  .media-container{
-    justify-content: center;
-    align-items: center;
-  }
-
+  .media-container,
+  .about-us-container,
   .policies-container{
-    justify-items: center;
-    align-items: center;
-  }
-
-  .about-us-container{
-    justify-items: center;
+    justify-content: center;
     align-items: center;
   }
 

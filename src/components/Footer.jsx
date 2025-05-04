@@ -3,7 +3,7 @@ import { ScrollToHashElement } from "./ScrollToHashElement"
 
 import { UilAngleRightB } from '@iconscout/react-unicons'
 
-import { UilFacebookF } from '@iconscout/react-unicons'
+import FacebookIcon from '../components/FacebookIcon';
 import { UilInstagram } from '@iconscout/react-unicons'
 import { UilWhatsapp } from '@iconscout/react-unicons'
 
@@ -23,22 +23,22 @@ export const Footer = () => {
             <div className="media-container">
               <h4>Nuestras redes sociales</h4>
                 <p>¡Síguenos para enterarte de más!</p>
-                  <div className="media-icons-container">                
-                    <a href="https://www.facebook.com/coconutfash" target="_blank" rel="noopener noreferrer">
-                        <div className="fb-icon-container">
-                          <UilFacebookF className="footer-icon" size="26" color="currentColor" />
-                        </div>
-                    </a>                                        
-                    <a href="https://www.instagram.com/coconutfashion_store" target="_blank" rel="noopener noreferrer">
-                      <div className="ig-icon-container">
-                        <UilInstagram className="footer-icon" size="26" color="currentColor" />
-                      </div>
-                    </a>                
+                  <div className="media-icons-container">
                     <a href="https://wa.me/50230094052?text=Hola%20quiero%20más%20información" target="_blank" rel="noopener noreferrer">
                         <div className="wa-icon-container">
                           <UilWhatsapp className="footer-icon" size="26" color="currentColor" />
                         </div>
                     </a>
+                    <a href="https://www.facebook.com/coconutfash" target="_blank" rel="noopener noreferrer">
+                        <div className="fb-icon-container">
+                        <FacebookIcon size={22.5} color="#fff" />
+                        </div>
+                    </a>
+                    <a href="https://www.instagram.com/coconutfashion_store" target="_blank" rel="noopener noreferrer">
+                      <div className="ig-icon-container">
+                        <UilInstagram className="footer-icon" size="26" color="currentColor" />
+                      </div>
+                    </a>                                                    
                   </div>
             </div>
 
@@ -66,9 +66,9 @@ export const Footer = () => {
             <div className="about-us-container">
               <h4>Acerca de nosotros</h4>
               <ul>
-                <li>®️ Producto 100% original</li>
-                <li>✈️ Mercadería Importada</li>
-                <li>📦 Venta por Mayor y Menor</li>
+                <li>Producto 100% original ®️</li>
+                <li>Mercadería Importada ✈️</li>
+                <li>Venta por Mayor y Menor 📦</li>
               </ul>
             </div>
         

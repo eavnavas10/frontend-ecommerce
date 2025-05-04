@@ -60,6 +60,7 @@
     flex-wrap: wrap;
     gap: 15px;
     padding-bottom: 20px;
+    font-weight: 500;
 }
 
 .modal-ig-icon-container,
@@ -98,7 +99,7 @@
 @media only screen and (max-width: 540px) {
 
     .modal-header {
-        margin-bottom: 110px;
+        margin-bottom: 90px;
       }
 
     .modal-dev-picture{

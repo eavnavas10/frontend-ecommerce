@@ -19,14 +19,13 @@ export const ModalDev = () => {
         <span className="developer-text" onClick={showModal}>
           Ernesto Villatoro
         </span>
-        <Modal title="¿Tienes algún proyecto en mente? ¡Contáctame!" open={isModalOpen} onOk={handleOk} onCancel={handleCancel} footer={null} getContainer={false} >
+        <Modal title="¿Tienes algún proyecto en mente? ¡Contáctame!" open={isModalOpen} onOk={handleOk} onCancel={handleCancel} footer={null} >
           <div className="modal-header">
             <img className="modal-cover" src="/img/cover-modal2.webp" alt="cover_image"/>
             <img className="modal-dev-picture" src="/img/developer.jpg" alt="Ernesto_Villatoro_picture"/>
             <h2 className="modal-developer-name">Ernesto Villatoro</h2>
             <p className="modal-developer-description">Desarrollador Fullstack 
-              <br/> Estudiante de Ingeniería en sistemas
-              <br/> Pensum cerrado </p>
+              <br/> Estudiante de Ingeniería en sistemas </p>
           </div>          
           <ul className="dev-social-media">
             <li>

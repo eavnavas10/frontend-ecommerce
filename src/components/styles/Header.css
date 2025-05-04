@@ -12,6 +12,7 @@
   max-width: 1200px;
   margin: 0 auto;
   align-items: center;
+  padding: 0 10px;
 }
 
 .hamburguer-btn-container {
@@ -131,7 +132,7 @@
 @media only screen and (max-width: 900px) {
 
   .header-content{
-    padding: 0 6px;
+    padding: 0 5px;
   }
 
   .side-menu {
