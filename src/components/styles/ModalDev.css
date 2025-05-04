@@ -1,14 +1,14 @@
 .modal-header {
     position: relative;
-    text-align: center;
-    padding-bottom: 80px;
-    margin-bottom: 40px;
+    padding-bottom: 90px;
+    margin-bottom: 20px;
   }
 
 .modal-cover{
     width: 100%;
     height: 150px;
     object-fit: cover;
+    border-radius: 10px;
 }
 
 .modal-header::after {
@@ -20,6 +20,7 @@
     height: 150px;
     background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
     pointer-events: none;
+    border-radius: 10px;
   }
 
 .modal-dev-picture{
@@ -39,10 +40,17 @@
     position: absolute;
     top: 100px;
     left: 20px;
-    color: var(--white);
+    color: var(--text-color-five);
     font-weight: 600;
     justify-self: center;
     z-index: 1;
+}
+
+.modal-developer-description{
+    position: absolute;
+    left: 20px;
+    top: 165px;
+    color: var(--text-color-second);
 }
 
 .dev-social-media{
@@ -90,7 +98,7 @@
 @media only screen and (max-width: 540px) {
 
     .modal-header {
-        margin-bottom: 60px;
+        margin-bottom: 110px;
       }
 
     .modal-dev-picture{
@@ -98,11 +106,18 @@
     }
     
     .modal-developer-name{
-        color: var(--text-color-second);
+        color: var(--text-color-first);
         left: 0;
         right: 0;
-        top: 235px;
+        top: 230px;
         z-index: 1;
+    }
+
+    .modal-developer-description{
+        top: 270px;
+        left: 0;
+        right: 0;
+        text-align: center;
     }
 
     .dev-social-media{

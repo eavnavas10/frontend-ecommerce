@@ -26,7 +26,7 @@
 }
 
 .info-container h4{
-  color: var(--text-color-fourth);
+  color: var(--text-color-five);
   font-weight: 600;
 }
 
@@ -104,6 +104,11 @@
   display: flex;
   text-decoration: none;
   color: var(--text-color-fourth);
+}
+
+.policy-item-footer a:hover{
+  transition: color 0.5s;
+  color: var(--text-color-five);
 }
 
 .policy-icon {

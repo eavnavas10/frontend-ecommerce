@@ -38,7 +38,7 @@ html, body {
     --text-color-first: #333;
     --text-color-second: #555;
     --text-color-third: #808080;
-    --text-color-fourth: #e0e0e0;
+    --text-color-fourth: #d4d4d4;
     --text-color-five: #fff;
 
     --primary-color: #2196F3;
@@ -58,5 +58,6 @@ html, body {
         #515ecf);
     --whatsapp-color: #25d366;
     --linkedin-color: #0b65c3;
+    --email-color: #dc493c;
 
 }

@@ -24,6 +24,9 @@ export const ModalDev = () => {
             <img className="modal-cover" src="/img/cover-modal2.webp" alt="cover_image"/>
             <img className="modal-dev-picture" src="/img/developer.jpg" alt="Ernesto_Villatoro_picture"/>
             <h2 className="modal-developer-name">Ernesto Villatoro</h2>
+            <p className="modal-developer-description">Desarrollador Fullstack 
+              <br/> Estudiante de Ingeniería en sistemas
+              <br/> Pensum cerrado </p>
           </div>          
           <ul className="dev-social-media">
             <li>

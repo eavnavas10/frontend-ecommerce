@@ -1,6 +1,10 @@
 .contact-page-container{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .contact-page-title {
@@ -22,19 +26,66 @@
     border-radius: 2px;
 }
 
-.contact-page-items{
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
+.contact-page-location-container{
+    background-color: var(--white);
+    border-radius: 10px;
+    padding: 30px;
 }
 
-.contact-page-item{
+.contact-page-location-container h3{
+    color: var(--text-color-first);
+}
+
+.contact-page-location-container p{
+    padding-top: 10px;
+    color: var(--text-color-second);
+    text-align: justify;
+}
+
+.contact-page-list{
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    list-style: none;
+    color: var(--text-color-five);
+    padding: 30px 0;
 }
 
 .contact-page-item a {
     text-decoration: none;
     color: inherit;
-    justify-items: center;
-  }  
+}
+
+.contact-page-item h3 {
+    font-weight: 600;
+}
+
+.contact-wa-icon-container,
+.contact-ig-icon-container,
+.contact-fb-icon-container,
+.contact-email-icon-container{
+    display: flex;
+    flex-wrap: wrap;
+    width: 300px;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.contact-wa-icon-container{
+    background-color: var(--whatsapp-color);
+}
+
+.contact-fb-icon-container{
+    background-color: var(--facebook-color);
+}
+
+.contact-ig-icon-container{
+    background: var(--instagram-color);
+}
+
+.contact-email-icon-container{
+    background: var(--email-color);
+}
