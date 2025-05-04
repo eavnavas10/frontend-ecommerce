@@ -11,7 +11,7 @@ export const ContactPage = () => {
     <>
     <div className="contact-page-container">
       <h2 className="contact-page-title">Contacta con nosotros</h2>
-      <div className="contact-page-items-container">
+      <div className="contact-page-items">
 
         <div className="contact-page-item">          
           <a href="https://wa.me/50230094052?text=Hola%20quiero%20más%20información" target="_blank" rel="noopener noreferrer">
