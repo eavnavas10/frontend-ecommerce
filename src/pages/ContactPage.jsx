@@ -1,7 +1,7 @@
 import React from 'react';
 import "./styles/ContactPage.css";
 
-import FacebookIcon from '../components/FacebookIcon';
+import { FacebookIcon } from '../components/CustomIcons';
 import { UilInstagram } from '@iconscout/react-unicons'
 import { UilWhatsapp } from '@iconscout/react-unicons'
 import { UilEnvelope } from '@iconscout/react-unicons'

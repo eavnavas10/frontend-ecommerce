@@ -37,17 +37,23 @@
 
 .fb-icon-container,
 .ig-icon-container,
-.wa-icon-container,
-.in-icon-container{
+.wa-icon-container{
   width: 40px;
   height: 40px;
   display: flex;
   margin: 0;
   align-items: center;
   justify-content: center;  
-  color: #fff;
-  border-radius: 6px;
+  color: var(--text-color-fourth);
 }
+
+.fb-icon-container:hover,
+.ig-icon-container:hover,
+.wa-icon-container:hover{
+  transition: color 0.5s;
+  color: var(--text-color-five);
+}
+
 
 .footer-icon{
   align-self: center;

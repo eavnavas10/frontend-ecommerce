@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getAllProducts } from '../lib/get-all-products';
 import "./styles/ProductDetails.css"
+import { ProductGallery } from "../components/ProductGallery"
 
 export const ProductDetails = () => {
   const { id } = useParams();
@@ -21,8 +22,9 @@ export const ProductDetails = () => {
   return (
     <div className="product-details-container">
       <div className="product-details-carousel">
-        <img className="product-details-image" src={product.image} alt={product.title} />
+        <img className="product-details-image" src={product.image} alt={product.title} />        
       </div>
+      <ProductGallery />
       <div className="product-details-content">
         <h1 className="product-details-title">{product.title}</h1>
           <p className="product-details-description">{product.description}</p>

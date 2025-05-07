@@ -3,7 +3,7 @@ import { ScrollToHashElement } from "./ScrollToHashElement"
 
 import { UilAngleRightB } from '@iconscout/react-unicons'
 
-import FacebookIcon from '../components/FacebookIcon';
+import { FacebookIcon } from './CustomIcons';
 import { UilInstagram } from '@iconscout/react-unicons'
 import { UilWhatsapp } from '@iconscout/react-unicons'
 
@@ -31,14 +31,14 @@ export const Footer = () => {
                     </a>
                     <a href="https://www.facebook.com/coconutfash" target="_blank" rel="noopener noreferrer">
                         <div className="fb-icon-container">
-                        <FacebookIcon size={22.5} color="#fff" />
+                          <FacebookIcon size="22.5" color="currentColor" />
                         </div>
-                    </a>
+                    </a>                    
                     <a href="https://www.instagram.com/coconutfashion_store" target="_blank" rel="noopener noreferrer">
                       <div className="ig-icon-container">
                         <UilInstagram className="footer-icon" size="26" color="currentColor" />
                       </div>
-                    </a>                                                    
+                    </a>
                   </div>
             </div>
 

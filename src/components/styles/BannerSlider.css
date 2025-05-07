@@ -1,5 +1,5 @@
 .mySwiper {    
-    width: 90%;
+    width: 100%;
     position: relative;
     padding-bottom: 40px;
 }
@@ -54,9 +54,5 @@
 
 /* ----- MEDIA QUERY == 540px / Smartphones ----- */
 @media only screen and (max-width: 540px) {
-
-    .mySwiper {    
-        width: 100%;
-    }
 
 }

@@ -9,7 +9,7 @@ export const NotFoundPage = () => {
         <h1> 
           <span style={{fontSize:'70px'}}>📦</span>
           <span style={{color:'red'}}>Error 404&nbsp;</span>
-          <span style={{color:'#555'}}>Not found page&nbsp;</span> 
+          <span style={{color:'#555'}}>Página no encontrada&nbsp;</span> 
           <UilAnnoyed size="30" color="currentColor" /></h1>
       </div>
     </>
