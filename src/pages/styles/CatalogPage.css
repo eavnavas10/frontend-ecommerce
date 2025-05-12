@@ -1,7 +1,8 @@
 .catalog-page-container{
-    padding: 0 128px;
     display: flex;
     flex-direction: column;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .catalog-page-title {
