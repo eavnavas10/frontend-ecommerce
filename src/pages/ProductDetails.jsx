@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getAllProducts } from "../lib/get-all-products";
+import { UilArrowCircleLeft } from '@iconscout/react-unicons'
 import "./styles/ProductDetails.css";
+import { useNavigate } from 'react-router-dom';
 import { ProductGallery } from "../components/ProductGallery";
 
 export const ProductDetails = () => {
+  const navigate = useNavigate();
+
   const { id } = useParams();
   const [product, setProduct] = useState(null);
 
@@ -21,11 +25,18 @@ export const ProductDetails = () => {
 
   return (
     <div className="product-details-container">
+      <button onClick={() => navigate(-1)} className="back-button">
+        <UilArrowCircleLeft size="28" color="var(--primary-color)"/>
+      </button>
+
+      <div className="product-details-img-container">
         <img
           className="product-details-image"
-          src={product.image}
-          alt={product.title}
+            src={product.image || "/placeholder.svg"}
+            alt={product.title}
         />
+      </div>
+      
       <div className="product-details-content">
         <h1 className="product-details-title">{product.title}</h1>
         <p className="product-details-description">{product.description}</p>

@@ -1,5 +1,8 @@
 .offers-page-container {
-    padding: 0 128px;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 100vh;
+    padding: 0 20px;
 }
 
 .offers-page-title {

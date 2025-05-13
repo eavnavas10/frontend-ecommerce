@@ -47,13 +47,13 @@
 
 .product-offer-tag {
   position: absolute;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   z-index: 10;
   top: 0;
   left: 0;
   background: red;
   color: white;
-  padding: 3px 7px;
+  padding: 4px 8px;
   border-radius: 0 0 4px 0;
 }
 

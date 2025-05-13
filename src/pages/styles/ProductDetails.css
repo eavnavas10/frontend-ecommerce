@@ -1,16 +1,32 @@
 .product-details-container {
     display: flex;
     max-width: 1200px;
+    margin: 0 auto;
     padding: 20px;
     gap: 20px;
     justify-content: center;
   }
 
-  .product-details-image {
+  .back-button{
+    border: none;
+    background-color: none;
+  }
+
+  .product-details-img-container {
     aspect-ratio: 3/4;
     width: 30%;
+  }
+
+  .product-details-image {
+    width: 100%;
+    aspect-ratio: 3/4;
     object-fit: cover;
     border-radius: 20px;
+  }
+
+  .product-details-content{
+    width: 70%;
+    flex-wrap: wrap;
   }
   
   .product-details-title {
@@ -43,16 +59,20 @@
   color: white;
 }
 
-  
   .product-details-description {
     margin-top: 16px;
     font-size: 1rem;
     line-height: 1.6;
     color: #666;
   }
+
+  .product-details-prices {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+  }
   
   .product-details-price {
-    margin-top: 20px;
     font-size: 1.5rem;
     color: red;
     font-weight: bold;
@@ -63,12 +83,6 @@
     color: #999;
     text-decoration: line-through;
     margin-left: 12px;
-  }
-  
-  .product-details-prices {
-    display: flex;
-    align-items: center;
-    margin-top: 10px;
   }
 
 /* ----- MEDIA QUERY == 540px / Smartphones ----- */
