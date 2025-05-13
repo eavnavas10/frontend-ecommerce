@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { UilFilterSlash } from "@iconscout/react-unicons";
 import "./styles/CatalogPage.css";
 import { ProductGrid } from "../components/ProductGrid";
 import { getAllProducts } from "../lib/get-all-products";
@@ -9,17 +10,45 @@ export const CatalogPage = () => {
   const [sizes, setSizes] = useState([]);
   const [categories, setCategories] = useState([]);
 
+  const [allProducts, setAllProducts] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
+
+  const [selectedSize, setSelectedSize] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("");
+  const [selectedGender, setSelectedGender] = useState("");
+
+  const [filterbtn, setfilterbtn] = useState("");
+
   useEffect(() => {
-    getAllSizes().then((data) => {
-      setSizes(data);
+    getAllSizes().then(setSizes);
+    getAllCategories().then(setCategories);
+    getAllProducts().then((products) => {
+      setAllProducts(products);
+      setFilteredProducts(products);
     });
   }, []);
 
   useEffect(() => {
-    getAllCategories().then((data) => {
-      setCategories(data);
-    });
-  }, []);
+    let result = allProducts;
+
+    if (selectedSize) {
+      result = result.filter((product) => product.sizes.includes(selectedSize));
+    }
+
+    if (selectedCategory) {
+      result = result.filter((product) =>
+        product.category.includes(selectedCategory)
+      );
+    }
+
+    if (selectedGender) {
+      result = result.filter((product) =>
+        product.gender.includes(selectedGender)
+      );
+    }
+
+    setFilteredProducts(result);
+  }, [selectedSize, selectedCategory, selectedGender, allProducts]);
 
   return (
     <div className="catalog-page-container">
@@ -28,7 +57,12 @@ export const CatalogPage = () => {
       <div className="filters-container">
         <div className="sizes-filter-container">
           <label>Tallas </label>
-          <select name="tallas" id="sizes">
+          <select
+            name="tallas"
+            id="sizes"
+            value={selectedSize}
+            onChange={(e) => setSelectedSize(e.target.value)}
+          >
             <option value="">Todas</option>
             {sizes.map((size, index) => (
               <option key={index} value={size}>
@@ -40,7 +74,12 @@ export const CatalogPage = () => {
 
         <div className="categories-filter-container">
           <label>Categorías </label>
-          <select name="categorias" id="categories">
+          <select
+            name="categorias"
+            id="categories"
+            value={selectedCategory}
+            onChange={(e) => setSelectedCategory(e.target.value)}
+          >
             <option value="">Todas</option>
             {categories.map((category, index) => (
               <option key={index} value={category.title}>
@@ -52,17 +91,39 @@ export const CatalogPage = () => {
 
         <div className="gender-filter-container">
           <label>Género </label>
-          <select name="genero" id="gender">
-            <option value="Unisex">Todos</option>
-            <option value="Male">Hombre</option>
-            <option value="Female">Mujer</option>
-            <option value="Boy">Niño</option>
-            <option value="Girl">Niña</option>
+          <select
+            name="genero"
+            id="gender"
+            value={selectedGender}
+            onChange={(e) => setSelectedGender(e.target.value)}
+          >
+            <option value="">Todos</option>
+            <option value="Unisex">Unisex</option>
+            <option value="Hombre">Hombre</option>
+            <option value="Mujer">Mujer</option>
+            <option value="Niño">Niño</option>
+            <option value="Niña">Niña</option>
           </select>
         </div>
+
+        {(selectedSize || selectedCategory || selectedGender) && (
+          <div className="delete-filters-container">
+            <button
+              className="delete-filters-btn"
+              onClick={() => {
+                setSelectedCategory("");
+                setSelectedSize("");
+                setSelectedGender("");
+              }}
+            >
+              Eliminar filtros
+              <UilFilterSlash size="20" color="currentColor" />
+            </button>
+          </div>
+        )}
       </div>
 
-      <ProductGrid fetchProducts={getAllProducts} />
+      <ProductGrid products={filteredProducts} />
     </div>
   );
 };

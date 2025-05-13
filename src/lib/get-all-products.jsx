@@ -1,7 +1,7 @@
 import { query, STRAPI_HOST } from "./strapi";
 
 export async function getAllProducts() {
-  return query("products?fields=title&fields=description&fields=oldPrice&fields=price&fields=offer&populate[sizes][fields]=size&populate[images][fields]=url")
+  return query("products?fields=title&fields=description&fields=oldPrice&fields=price&fields=offer&fields=qty&fields=gender&populate[categories][fields]=title&populate[sizes][fields]=size&populate[images][fields]=url")
     .then((response) => response.json())
     .then((data) => {
       if (!data.data || !Array.isArray(data.data)) return;
@@ -17,7 +17,9 @@ export async function getAllProducts() {
           price: item.price || 0,
           offer: item.offer || false,
           qty: item.qty || 0,
-          sizes: item.sizes ? item.sizes.map((size) => size.size) : [],
+          gender: item.gender || "Sin género",
+          category: item.categories ? item.categories.map((category) => category.title) : [],
+          sizes: item.sizes ? item.sizes.map((size) => size.size) : [],          
           image: imageUrl ? `${STRAPI_HOST}${imageUrl}` : "",
         };
       });

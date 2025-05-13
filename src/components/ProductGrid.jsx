@@ -1,18 +1,7 @@
-import React, { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
 import "./styles/ProductGrid.css"
 
-export const ProductGrid = ({ fetchProducts }) => {
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    fetchProducts()
-      .then((data) => {
-        if (data) setProducts(data);
-      })
-      .catch((err) => console.error("Error loading products", err));
-  }, [fetchProducts]);
-  
+export const ProductGrid = ({ products }) => {
 
   return (
     <section className="products-container">
