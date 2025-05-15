@@ -16,11 +16,11 @@
     content: "";
     position: absolute;
     left: 50%;
-    bottom: -5px; /* un poco más abajo del texto */
+    bottom: -5px;
     transform: translateX(-50%);
     height: 3px;
-    width: 60px; /* largo de la línea */
-    background-color: var(--secondary-color); /* puedes cambiar el color aquí */
+    width: 60px; 
+    background-color: var(--secondary-color);
     border-radius: 2px;
 }
 

@@ -45,12 +45,15 @@
     font-size: 1.2rem;
     text-decoration: none;
     color: var(--background-color);
+    background-color: var(--layout-color);
     font-weight: 500;
     transition: color 0.2s;
+    border-radius: 10px;
   }
   
-  .side-nav-container a:hover {
-    color: var(--primary-color);
+  .side-nav-container a:hover,
+  .side-nav-container summary:hover {
+    background-color: var(--text-color-first);
   }
 
   .side-nav-container summary {

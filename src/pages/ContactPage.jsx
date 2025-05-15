@@ -22,7 +22,7 @@ export const ContactPage = () => {
             <a href="https://wa.me/50230094052?text=Hola%20quiero%20más%20información" target="_blank" rel="noopener noreferrer">
                 <div className="contact-wa-icon-container">
                   <UilWhatsapp className="footer-icon" size="26" color="currentColor" />
-                  <h3 className="contact-page-media-name">Whatsapp Vendedora</h3>
+                  <p className="contact-page-media-name">Whatsapp Vendedora</p>
                 </div>            
             </a>
           </li>
@@ -31,7 +31,7 @@ export const ContactPage = () => {
             <a href="https://chat.whatsapp.com/LRN12JbUG4FH6gmTIkvLER" target="_blank" rel="noopener noreferrer">
                 <div className="contact-wa-icon-container">
                   <UilWhatsapp className="footer-icon" size="26" color="currentColor" />
-                  <h3 className="contact-page-media-name">Grupo de Whatsapp</h3>
+                  <p className="contact-page-media-name">Grupo de Whatsapp</p>
                 </div>            
             </a>
           </li>
@@ -40,7 +40,7 @@ export const ContactPage = () => {
             <a href="https://www.facebook.com/coconutfash" target="_blank" rel="noopener noreferrer">
                 <div className="contact-fb-icon-container">
                   <FacebookIcon size={22.5} color="#fff" />
-                  <h3 className="contact-page-media-name">Facebook</h3>
+                  <p className="contact-page-media-name">Facebook</p>
                 </div>              
             </a>
           </li>
@@ -49,7 +49,7 @@ export const ContactPage = () => {
             <a href="https://www.instagram.com/coconutfashion_store" target="_blank" rel="noopener noreferrer">
               <div className="contact-ig-icon-container">
                 <UilInstagram className="footer-icon" size="26" color="currentColor" />
-                <h3 className="contact-page-media-name">Instagram</h3>
+                <p className="contact-page-media-name">Instagram</p>
               </div>            
             </a>          
           </li>
@@ -58,7 +58,7 @@ export const ContactPage = () => {
             <a href="mailto:coconutfashion@gmail.com?subject=Etiqueta%20A&body=Hola,%20este%20es%20un%20correo%20con%20etiqueta%20A." target="_blank" rel="noopener noreferrer">
               <div className="contact-email-icon-container">
                 <UilEnvelope className="footer-icon" size="26" color="currentColor" />
-                <h3 className="contact-page-media-name">Email</h3>
+                <p className="contact-page-media-name">Email</p>
               </div>            
             </a>  
           </li>

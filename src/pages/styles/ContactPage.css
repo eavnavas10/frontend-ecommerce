@@ -2,6 +2,7 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    min-height: 80vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -46,7 +47,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
+    gap: 30px;
     list-style: none;
     color: var(--text-color-five);
     padding: 30px 0;
@@ -62,8 +63,10 @@
     transition: filter 0.2s;
 }
 
-.contact-page-item h3 {
+.contact-page-item p {
+    font-size: 1rem;
     font-weight: 600;
+    text-align: center;
 }
 
 .contact-wa-icon-container,
@@ -71,13 +74,14 @@
 .contact-fb-icon-container,
 .contact-email-icon-container{
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
-    width: 300px;
-    height: 50px;
+    width: 120px;
+    height: 120px;
     align-items: center;
     justify-content: center;
     border-radius: 10px;
-    gap: 10px;
+    gap: 5px;
 }
 
 .contact-wa-icon-container{
@@ -94,4 +98,26 @@
 
 .contact-email-icon-container{
     background: var(--email-color);
+}
+
+
+/* ----- MEDIA QUERY == 900px / Tablets ----- */
+@media only screen and (max-width: 900px) {
+
+  }
+
+/* ----- MEDIA QUERY == 540px / Smartphones ----- */
+@media only screen and (max-width: 540px) {
+    .contact-page-item p {
+    font-size: 0.8rem;
+}
+
+.contact-wa-icon-container,
+.contact-ig-icon-container,
+.contact-fb-icon-container,
+.contact-email-icon-container{
+    width: 100px;
+    height: 100px;
+}
+
 }
