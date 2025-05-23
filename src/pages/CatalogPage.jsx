@@ -5,6 +5,7 @@ import { ProductGrid } from "../components/ProductGrid";
 import { getAllProducts } from "../lib/get-all-products";
 import { getAllSizes } from "../lib/get-all-sizes";
 import { getAllCategories } from "../lib/get-all-categories";
+import { SelectAnt } from "../components/SelectAnt";
 
 export const CatalogPage = () => {
   const [sizes, setSizes] = useState([]);
@@ -13,9 +14,9 @@ export const CatalogPage = () => {
   const [allProducts, setAllProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
 
-  const [selectedSize, setSelectedSize] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("");
-  const [selectedGender, setSelectedGender] = useState("");
+  const [selectedSize, setSelectedSize] = useState(undefined);
+  const [selectedCategory, setSelectedCategory] = useState(undefined);
+  const [selectedGender, setSelectedGender] = useState(undefined);
 
   const [filterbtn, setfilterbtn] = useState("");
 
@@ -50,60 +51,56 @@ export const CatalogPage = () => {
     setFilteredProducts(result);
   }, [selectedSize, selectedCategory, selectedGender, allProducts]);
 
+  const sizeOptions = [...sizes.map((size) => ({ value: size, label: size }))];
+
+  const categoryOptions = [
+    ...categories.map((cat) => ({
+      value: cat.title,
+      label: cat.title,
+    })),
+  ];
+
+  const genderOptions = [
+    { value: "Unisex", label: "Unisex" },
+    { value: "Hombre", label: "Hombre" },
+    { value: "Mujer", label: "Mujer" },
+    { value: "Niño", label: "Niño" },
+    { value: "Niña", label: "Niña" },  
+  ];
+
   return (
     <div className="catalog-page-container">
       <h2 className="catalog-page-title">Nuestros Productos</h2>
 
       <div className="filters-container">
         <div className="sizes-filter-container">
-          <label>Tallas </label>
-          <select
-            name="tallas"
-            id="sizes"
+          <label>Tallas</label>
+          <SelectAnt
+            placeholder="Selecciona una talla"
+            options={sizeOptions}
             value={selectedSize}
-            onChange={(e) => setSelectedSize(e.target.value)}
-          >
-            <option value="">Todas</option>
-            {sizes.map((size, index) => (
-              <option key={index} value={size}>
-                {size}
-              </option>
-            ))}
-          </select>
+            onChange={(value) => setSelectedSize(value)}
+          />
         </div>
 
         <div className="categories-filter-container">
-          <label>Categorías </label>
-          <select
-            name="categorias"
-            id="categories"
+          <label>Categorías</label>
+          <SelectAnt
+            placeholder="Selecciona una categoría"
+            options={categoryOptions}
             value={selectedCategory}
-            onChange={(e) => setSelectedCategory(e.target.value)}
-          >
-            <option value="">Todas</option>
-            {categories.map((category, index) => (
-              <option key={index} value={category.title}>
-                {category.title}
-              </option>
-            ))}
-          </select>
+            onChange={setSelectedCategory}
+          />
         </div>
 
         <div className="gender-filter-container">
-          <label>Género </label>
-          <select
-            name="genero"
-            id="gender"
+          <label>Género</label>
+          <SelectAnt
+            placeholder="Selecciona un género"
+            options={genderOptions}
             value={selectedGender}
-            onChange={(e) => setSelectedGender(e.target.value)}
-          >
-            <option value="">Todos</option>
-            <option value="Unisex">Unisex</option>
-            <option value="Hombre">Hombre</option>
-            <option value="Mujer">Mujer</option>
-            <option value="Niño">Niño</option>
-            <option value="Niña">Niña</option>
-          </select>
+            onChange={setSelectedGender}
+          />
         </div>
 
         {(selectedSize || selectedCategory || selectedGender) && (
@@ -111,9 +108,9 @@ export const CatalogPage = () => {
             <button
               className="delete-filters-btn"
               onClick={() => {
-                setSelectedCategory("");
-                setSelectedSize("");
-                setSelectedGender("");
+                setSelectedCategory(undefined);
+                setSelectedSize(undefined);
+                setSelectedGender(undefined);
               }}
             >
               Eliminar filtros
