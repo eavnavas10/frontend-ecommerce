@@ -63,7 +63,10 @@ export const SideMenu = ({ isOpen, toggleMenu }) => {
               </summary>
               {categories.map((category) => (
                 <li key={category.id} className="side-nav-item">
-                  <Link to="/" onClick={toggleMenu}>
+                    <Link
+                      to={`/catalog?category=${encodeURIComponent(category.title)}`}
+                      onClick={toggleMenu}
+                    >
                   <img
                     src={category.image || "/placeholder.svg"}
                     alt={category.title}

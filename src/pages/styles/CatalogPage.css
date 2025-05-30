@@ -18,17 +18,20 @@
     content: "";
     position: absolute;
     left: 50%;
-    bottom: -5px; /* un poco más abajo del texto */
+    bottom: -5px;
     transform: translateX(-50%);
     height: 3px;
-    width: 60px; /* largo de la línea */
-    background-color: var(--secondary-color); /* puedes cambiar el color aquí */
+    width: 60px;
+    background-color: var(--secondary-color);
     border-radius: 2px;
 }
 
 .filters-container{
     display: flex;
-    padding: 20px 0; 
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
     gap: 24px;
 }
 
@@ -36,8 +39,8 @@
 .categories-filter-container,
 .gender-filter-container{
     display: flex;
-    gap: 20px;
     align-items: center;
+    gap: 20px;
 }
 
 .delete-filters-btn{
@@ -60,25 +63,48 @@
 
 /* ----- MEDIA QUERY == 900px / Tablets ----- */
 @media only screen and (max-width: 900px) {
-    .catalog-page-container {
-        padding: 0px;
-    }
-
-    .filters-container{
-        display: flex;
-        flex-wrap: wrap;
-        padding: 0 24px;                
-    }
 
   }
 
 /* ----- MEDIA QUERY == 540px / Smartphones ----- */
 @media only screen and (max-width: 540px) {
+
+    .catalog-page-container{
+        align-items: center;
+    }
+
     .filters-container{
         display: flex;
         flex-direction: column;
-        padding: 24px;
-        gap: 16px;
+        padding: 40px 0;
+        gap: 20px;
+        width: 100%;
+    }
+
+    .delete-filters-container{
+        display: flex;
+        justify-content: center;
+        margin: 10px;
+    }
+
+    .sizes-filter-container,
+    .categories-filter-container,
+    .gender-filter-container {
+    width: 100%;
+    justify-content: space-between;
+    }
+
+    .sizes-filter-container label,
+    .categories-filter-container label,
+    .gender-filter-container label {
+    width: 30%;
+    font-size: 0.9rem;
+    }
+
+    .sizes-filter-container .ant-select,
+    .categories-filter-container .ant-select,
+    .gender-filter-container .ant-select {
+    width: 70%;
     }
 
 }

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { UilFilterSlash } from "@iconscout/react-unicons";
 import "./styles/CatalogPage.css";
 import { ProductGrid } from "../components/ProductGrid";
@@ -18,7 +19,15 @@ export const CatalogPage = () => {
   const [selectedCategory, setSelectedCategory] = useState(undefined);
   const [selectedGender, setSelectedGender] = useState(undefined);
 
-  const [filterbtn, setfilterbtn] = useState("");
+  const [searchParams] = useSearchParams();
+
+  useEffect(() => {
+    const categoryFromURL = searchParams.get("category");
+    if (categoryFromURL) {
+      setSelectedCategory(categoryFromURL);
+    }
+  }, [searchParams]);
+
 
   useEffect(() => {
     getAllSizes().then(setSizes);
