@@ -59,6 +59,8 @@
     cursor: pointer;
     transition: border 0.2s;
     border: 1px solid #4096ff;
+    transform: scale(105%);
+    transition: transform 0.5s;
 }
 
 .no-products-message {

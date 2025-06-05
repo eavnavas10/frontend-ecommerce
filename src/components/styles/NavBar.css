@@ -39,7 +39,9 @@
 }
 
 .nav-item a:hover {
-  color: var(--primary-color);
+  color: var(--white);
+  transform: scale(105%);
+  transition: transform 0.5s;
 }
 
 /* ----- MEDIA QUERY == 900px / Tablets ----- */
