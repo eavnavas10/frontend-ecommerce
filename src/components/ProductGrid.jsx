@@ -7,7 +7,7 @@ export const ProductGrid = ({ products }) => {
     <section className="products-container">
       <div className="products-grid">
         {products.map((product) => (
-          <Link key={product.id} to={`/productDetails/${product.id}`} className="product-card-link">
+          <Link key={product.id} to={`/producto/${product.id}`} className="product-card-link">
           <article key={product.id} className="product-card">            
             <div className="product-image-container">
               {product.offer && <span className="product-offer-tag">Oferta</span>}            
@@ -15,6 +15,7 @@ export const ProductGrid = ({ products }) => {
                 src={product.image || "/placeholder.svg"}
                 alt={product.title}
                 className="product-image"
+                loading="lazy"
               />
             </div>
             <div className="product-info">

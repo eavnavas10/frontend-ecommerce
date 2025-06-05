@@ -1,36 +1,28 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { getAllProducts } from "../lib/get-all-products";
+import { useParams, useNavigate } from "react-router-dom";
+import { getProductById } from "../lib/get-product-by-id";
 import { UilAngleLeftB } from "@iconscout/react-unicons";
 import "./styles/ProductDetails.css";
-import { useNavigate } from "react-router-dom";
-import { ProductGallery } from "../components/ProductGallery";
 
 export const ProductDetails = () => {
   const navigate = useNavigate();
-
   const { id } = useParams();
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
-    getAllProducts().then((products) => {
-      if (products) {
-        const foundProduct = products.find((p) => p.id === parseInt(id));
-        setProduct(foundProduct);
-      }
-    });
+    getProductById(id)
+      .then(setProduct)
+      .catch((err) => {
+        console.error("Error al obtener el producto:", err);
+        setProduct(null);
+      });
+    window.scrollTo({ top: 0 });
   }, [id]);
 
   if (!product) return <div>Cargando...</div>;
 
   return (
     <div className="product-details-container">
-      <div className="back-button-container">
-        <button onClick={() => navigate(-1)} className="back-button">
-          <UilAngleLeftB size="30" color="var(--text-color-third)" />
-        </button>
-      </div>
-
       <div className="product-details-content">
         <div className="product-details-img-container">
           <img
@@ -43,6 +35,7 @@ export const ProductDetails = () => {
         <div className="product-details-info">
           <h1 className="product-details-title">{product.title}</h1>
           <p className="product-details-description">{product.description}</p>
+
           <div className="sizes-container">
             {product.sizes.length > 0 && (
               <span className="size-text">
@@ -64,8 +57,11 @@ export const ProductDetails = () => {
               ))}
             </div>
           </div>
+
           <div className="product-details-prices">
-            <p className="product-details-price">Q{product.price.toFixed(2)}</p>
+            <p className="product-details-price">
+              Q{product.price.toFixed(2)}
+            </p>
             {product.offer && (
               <p className="product-details-old-price">
                 Q{product.oldPrice.toFixed(2)}

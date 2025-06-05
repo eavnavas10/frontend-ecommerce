@@ -1,2 +1,2 @@
-GET http://localhost:4000/api/products/?fields=title&fields=description&fields=oldPrice&fields=price&fields=offer&fields=gender&populate[categories][fields]=title&populate[sizes][fields]=size&populate[images][fields]=url
+GET http://localhost:4000/api/products?filters[id][$eq]=93&fields[0]=title&fields[1]=description&fields[2]=oldPrice&fields[3]=price&fields[4]=offer&fields[5]=qty&fields[6]=gender&populate[categories][fields][0]=title&populate[sizes][fields][0]=size&populate[images][fields][0]=url
 Authorization: Bearer 062453c3365d67828aa10afd979a48a7a2cf3f47cf6c5ff59daf53a08e282be92fbe3672847e00795853081eb4352670377ff07a813c0820c3f3833c76428936dfb2514b0285478adf1c53e7d92f0d109c65ea302450eff76d7d97cb02d9c8471a37d08a2ac29a8b88f16419ac5965fc602caaec86345db6f66e2e8b22fb4dfd

@@ -1,80 +1,84 @@
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { UilFilterSlash } from "@iconscout/react-unicons";
-import "./styles/CatalogPage.css";
-import { ProductGrid } from "../components/ProductGrid";
 import { getAllProducts } from "../lib/get-all-products";
 import { getAllSizes } from "../lib/get-all-sizes";
 import { getAllCategories } from "../lib/get-all-categories";
+import { ProductGrid } from "../components/ProductGrid";
 import { SelectAnt } from "../components/SelectAnt";
+import { PaginationAnt } from "../components/PaginationAnt";
+import "./styles/CatalogPage.css";
 
 export const CatalogPage = () => {
   const [sizes, setSizes] = useState([]);
   const [categories, setCategories] = useState([]);
 
-  const [allProducts, setAllProducts] = useState([]);
-  const [filteredProducts, setFilteredProducts] = useState([]);
+  const [products, setProducts] = useState([]);
+  const [totalProducts, setTotalProducts] = useState(0);
 
   const [selectedSize, setSelectedSize] = useState(undefined);
   const [selectedCategory, setSelectedCategory] = useState(undefined);
   const [selectedGender, setSelectedGender] = useState(undefined);
 
   const [searchParams] = useSearchParams();
+  const [isInitialized, setIsInitialized] = useState(false);
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 25;
+
+  useEffect(() => {
+    getAllSizes().then(setSizes);
+    getAllCategories().then(setCategories);
+  }, []);
 
   useEffect(() => {
     const categoryFromURL = searchParams.get("category");
     if (categoryFromURL) {
       setSelectedCategory(categoryFromURL);
     }
+    setIsInitialized(true);
   }, [searchParams]);
 
+  useEffect(() => {
+    if (!isInitialized) return;
+
+    const fetchProducts = async () => {
+      const { products, pagination } = await getAllProducts({
+        category: selectedCategory,
+        size: selectedSize,
+        gender: selectedGender,
+        page: currentPage,
+        pageSize: itemsPerPage,
+      });
+
+      setProducts(products);
+      setTotalProducts(pagination?.total || 0);
+    };
+
+    fetchProducts();
+  }, [
+    selectedCategory,
+    selectedSize,
+    selectedGender,
+    currentPage,
+    isInitialized,
+  ]);
 
   useEffect(() => {
-    getAllSizes().then(setSizes);
-    getAllCategories().then(setCategories);
-    getAllProducts().then((products) => {
-      setAllProducts(products);
-      setFilteredProducts(products);
-    });
-  }, []);
+    window.scrollTo({ top: 0, behavior: "auto" });
+  }, [currentPage]);
 
-  useEffect(() => {
-    let result = allProducts;
-
-    if (selectedSize) {
-      result = result.filter((product) => product.sizes.includes(selectedSize));
-    }
-
-    if (selectedCategory) {
-      result = result.filter((product) =>
-        product.category.includes(selectedCategory)
-      );
-    }
-
-    if (selectedGender) {
-      result = result.filter((product) =>
-        product.gender.includes(selectedGender)
-      );
-    }
-
-    setFilteredProducts(result);
-  }, [selectedSize, selectedCategory, selectedGender, allProducts]);
-
-  const sizeOptions = [...sizes.map((size) => ({ value: size, label: size }))];
-
-  const categoryOptions = [
-    ...categories.map((cat) => ({
-      value: cat.title,
-      label: cat.title,
-    })),
-  ];
-
+  const sizeOptions = sizes.map((size) => ({ value: size, label: size }));
+  const categoryOptions = categories.map((cat) => ({
+    value: cat.title,
+    label: cat.title,
+  }));
   const genderOptions = [
     { value: "Unisex", label: "Unisex" },
     { value: "Hombre", label: "Hombre" },
     { value: "Mujer", label: "Mujer" },
     { value: "Niño", label: "Niño" },
-    { value: "Niña", label: "Niña" },  
+    { value: "Niña", label: "Niña" },
   ];
 
   return (
@@ -88,7 +92,10 @@ export const CatalogPage = () => {
             placeholder="Selecciona una talla"
             options={sizeOptions}
             value={selectedSize}
-            onChange={(value) => setSelectedSize(value)}
+            onChange={(value) => {
+              setCurrentPage(1);
+              setSelectedSize(value);
+            }}
           />
         </div>
 
@@ -98,7 +105,10 @@ export const CatalogPage = () => {
             placeholder="Selecciona una categoría"
             options={categoryOptions}
             value={selectedCategory}
-            onChange={setSelectedCategory}
+            onChange={(value) => {
+              setCurrentPage(1);
+              setSelectedCategory(value);
+            }}
           />
         </div>
 
@@ -108,7 +118,10 @@ export const CatalogPage = () => {
             placeholder="Selecciona un género"
             options={genderOptions}
             value={selectedGender}
-            onChange={setSelectedGender}
+            onChange={(value) => {
+              setCurrentPage(1);
+              setSelectedGender(value);
+            }}
           />
         </div>
 
@@ -120,6 +133,7 @@ export const CatalogPage = () => {
                 setSelectedCategory(undefined);
                 setSelectedSize(undefined);
                 setSelectedGender(undefined);
+                setCurrentPage(1);
               }}
             >
               Eliminar filtros
@@ -129,7 +143,21 @@ export const CatalogPage = () => {
         )}
       </div>
 
-      <ProductGrid products={filteredProducts} />
+      {products.length > 0 ? (
+        <ProductGrid products={products} />
+      ) : (
+        <p className="no-products-message">
+          No se encontraron productos con los filtros aplicados.
+        </p>
+      )}
+
+      <PaginationAnt
+        className="pagination-control"
+        current={currentPage}
+        total={totalProducts}
+        pageSize={itemsPerPage}
+        onChange={(newPage) => setCurrentPage(newPage)}
+      />
     </div>
   );
 };

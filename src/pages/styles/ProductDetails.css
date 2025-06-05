@@ -7,19 +7,6 @@
     gap: 10px;
   }
 
-  .back-button-container{
-    justify-content: left;
-  }
-
-  .back-button{
-    border: none;
-    background-color: none;
-  }
-
-  .back-button:hover{
-    cursor: pointer;
-  }
-
   .product-details-content {
     display: flex;
     width: 100%;
@@ -108,7 +95,9 @@
   }
 
   .product-details-img-container {
-    width: 100%; 
+    display: flex;
+    margin: 0 auto;
+    width: 80%; 
   }
 
     .product-details-content{
