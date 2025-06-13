@@ -147,7 +147,7 @@ export const CatalogPage = () => {
         <ProductGrid products={products} />
       ) : (
         <p className="no-products-message">
-          No se encontraron productos con los filtros aplicados.
+          No se encontraron resultados.
         </p>
       )}
 

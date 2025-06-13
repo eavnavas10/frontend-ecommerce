@@ -4,6 +4,8 @@ import { NavLink } from "react-router-dom";
 import { HamburguerButton } from './HamburguerButton';
 import { UilSearch, UilHeartAlt, UilShoppingCart, UilEstate } from '@iconscout/react-unicons';
 import { SideMenu } from "./SideMenu";
+import { Badge } from 'antd';
+import { useCart } from '../contexts/CartContext';
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,6 +13,10 @@ export const Header = () => {
   const handleCloseMenu = () => {
     setIsOpen(false);
   };
+
+  const { cartItems } = useCart();
+  const totalQuantity = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+
 
   return (
     <header className="header-container">
@@ -31,11 +37,10 @@ export const Header = () => {
         </div>
 
         <div className="icons-container">
-          <NavLink className={({ isActive }) => isActive ? 'favorite-link active' : 'favorite-link'} to='/favorite'>
-            <UilHeartAlt className='favorite-icon' color="currentColor" />
-          </NavLink>
           <NavLink className={({ isActive }) => isActive ? 'shopping-cart-link active' : 'shopping-cart-link'} to='/shopping-cart'>
-            <UilShoppingCart className='shopping-cart-icon' color="currentColor" />
+              <Badge style={{boxShadow:"none"}} count={cartItems.length}>
+                <UilShoppingCart className='shopping-cart-icon' color="currentColor" />
+              </Badge>
           </NavLink>
           <button className="search-button">
             <UilSearch className='search-icon' color="currentColor" />
