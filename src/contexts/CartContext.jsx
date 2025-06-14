@@ -46,9 +46,17 @@ export function CartProvider({ children }) {
 
   const clearCart = () => setCartItems([]);
 
+  const setItemQty = (id, size, qty) => {
+    setCartItems((prevItems) =>
+      prevItems.map((item) =>
+        item.id === id && item.size === size ? { ...item, quantity: qty } : item
+      )
+    );
+  };
+
   return (
     <CartContext.Provider
-      value={{ cartItems, addToCart, removeFromCart, clearCart }}
+      value={{ cartItems, addToCart, removeFromCart, clearCart, setItemQty }}
     >
       {children}
     </CartContext.Provider>

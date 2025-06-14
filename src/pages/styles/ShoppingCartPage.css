@@ -26,14 +26,18 @@
     border-radius: 2px;
 }
 
-.cart-empty-message {
+.shopping-cart-content.empty {
   display: flex;
   justify-content: center;
   align-items: center;
-  justify-self: center;
-  text-align: center;
-  margin: auto;
+  flex: 1;
+}
+
+.cart-empty-message {
+  display: flex;
   gap: 10px;
+  justify-content: center;
+  align-items: center;
   font-size: 1.2rem;
   font-weight: 500;
   color: #777;
@@ -78,41 +82,61 @@
   font-size: 1.1rem;
 }
 
-.cart-item-controls {
+.cart-page-item-delete {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   gap: 10px;
 }
 
-.remove-item-btn,
-.clear-cart-btn {
-  padding: 8px 12px;
-  background-color: #ff4d4f;
-  color: #fff;
+.cart-page-item-qty {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+}
+
+.cart-page-buttons-container{
+  display: flex;
+  padding: 20px;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart-page-remove-item-btn,
+.clear-cart-btn,
+.whatsapp-order-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  color: var(--text-color-five);
   border: none;
   border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
 
-.remove-item-btn:hover,
-.clear-cart-btn:hover {
-  background-color: #d9363e;
+.cart-page-remove-item-btn,
+.clear-cart-btn {
+  background-color: #e6561d;
 }
 
-.clear-cart-btn {
-  align-self: center;
-  margin-top: 30px;
-  font-size: 1rem;
-  margin: 20px;
+.whatsapp-order-btn{
+  background-color: var(--whatsapp-color);
+}
+
+.cart-page-remove-item-btn:hover,
+.clear-cart-btn:hover,
+.whatsapp-order-btn:hover {
+  filter: brightness(90%);
+  transition: filter 0.5s;
 }
 
 /* ----- MEDIA QUERY == 900px / Tablets ----- */
 @media only screen and (max-width: 900px) {
-  .shopping-cart-page-container {
-    padding: 30px 15px;
-  }
 
   .cart-item {
     flex-direction: column;
@@ -141,9 +165,6 @@
 
 /* ----- MEDIA QUERY == 540px / Smartphones ----- */
 @media only screen and (max-width: 540px) {
-  .shopping-cart-page-container {
-    padding: 20px 10px;
-  }
 
   .shopping-cart-title {
     font-size: 1.6rem;

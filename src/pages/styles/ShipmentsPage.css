@@ -29,14 +29,15 @@
     border-radius: 10px;
     padding: 30px;
     line-height: 1.8rem;
+    margin-bottom: 30px;
 }
 
 .shipments-page-content ul {
     display: flex;
     flex-direction: column;
     list-style: none;
-    padding: 20px 0;
-    gap: 20px;
+    padding: 30px 0;
+    gap: 40px;
 }
 
 .shipments-page-content h3 {
@@ -55,8 +56,12 @@
 /* ----- MEDIA QUERY == 540px / Smartphones ----- */
 @media only screen and (max-width: 540px) {
     
+    .shipments-page-container{
+        font-size: 0.9rem;
+    }
+
     .shipments-page-content ul {
-    gap: 30px;
+    gap: 40px;
 }
 
     .shipments-page-content p {
