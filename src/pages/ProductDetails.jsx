@@ -21,6 +21,7 @@ export const ProductDetails = () => {
       id: product.id,
       title: product.title,
       price: product.price,
+      qty: product.qty,
       image: product.image,
       size: selectedSize,
     };
@@ -61,6 +62,7 @@ export const ProductDetails = () => {
       <div className="product-details-info">
         <h1 className="product-details-title">{product.title}</h1>
         <p className="product-details-description">{product.description}</p>
+        <p className="product-details-qty">Disponibilidad: {product.qty == 0 ? "Sin existencias" : product.qty}</p>
 
         <div className="sizes-container">
           {product.sizes.length > 0 && (
