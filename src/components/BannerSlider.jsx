@@ -1,17 +1,11 @@
-import React, { useRef, useState } from 'react';
-// Import Swiper React components
+import { useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Link } from 'react-router-dom';
 
-
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
-import './styles/BannerSlider.css';
-
-// import required modules
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 
 export const BannerSlider = () => {
