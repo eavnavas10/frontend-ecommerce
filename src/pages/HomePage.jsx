@@ -1,14 +1,95 @@
+import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Link } from "react-router-dom";
-import "./styles/HomePage.css";
-
+import { getOffers } from "../lib/get-offers";
+import { getHomeCategoryConfig } from "../lib/get-home-categories";
+import { getAllProducts } from "../lib/get-all-products";
+import { getProductsByCategory } from "../lib/get-products-by-category";
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import { CategorySlider } from "../components/CategorySlider";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-
-import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import "./styles/HomePage.css";
 
 export const HomePage = () => {
+  const [offers, setOffers] = useState([]);
+  const [newestProducts, setNewestProducts] = useState([]);
+  const [category1Data, setCategory1Data] = useState([]);
+  const [category2Data, setCategory2Data] = useState([]);
+  const [categoryTitles, setCategoryTitles] = useState({});
+
+  useEffect(() => {
+    async function fetchOffers() {
+      try {
+        const res = await getOffers({ page: 1, pageSize: 10 });
+        if (res?.products) {
+          setOffers(res.products);
+        }
+      } catch (error) {
+        console.error("Error al obtener ofertas:", error);
+      }
+    }
+
+    fetchOffers();
+  }, []);
+
+  useEffect(() => {
+    async function loadCategoryCarousels() {
+      try {
+        const config = await getHomeCategoryConfig();
+        if (config) {
+          setCategoryTitles({
+            category1: config.category1.title,
+            category2: config.category2.title,
+          });
+
+          const [cat1Products, cat2Products] = await Promise.all([
+            getProductsByCategory(config.category1.id),
+            getProductsByCategory(config.category2.id),
+          ]);
+
+          setCategory1Data(cat1Products);
+          setCategory2Data(cat2Products);
+        }
+      } catch (err) {
+        console.error("Error al cargar categorías:", err);
+      }
+    }
+
+    loadCategoryCarousels();
+  }, []);
+
+useEffect(() => {
+  async function fetchNewestProducts() {
+    try {
+      const res = await getAllProducts({ page: 1, pageSize: 10 });
+      if (res?.products) {
+        setNewestProducts(res.products);
+      }
+    } catch (error) {
+      console.error("Error al cargar productos nuevos:", error);
+    }
+  }
+
+  fetchNewestProducts();
+}, []);
+
+useEffect(() => {
+  async function fetchNewestProducts() {
+    try {
+      const res = await getAllProducts({ page: 1, pageSize: 10 });
+      if (res?.products) {
+        setNewestProducts(res.products);
+      }
+    } catch (error) {
+      console.error("Error al cargar productos nuevos:", error);
+    }
+  }
+
+  fetchNewestProducts();
+}, []);
+
   return (
     <div className="home-page-container">
       <div className="banner-slider-container">
@@ -74,33 +155,11 @@ export const HomePage = () => {
         </Swiper>
       </div>
 
-      <div className="categories-slider">
-        <Swiper
-          slidesPerView={4}
-          spaceBetween={30}
-          centeredSlides={true}
-          navigation={true}
-          autoplay={{
-          delay: 5000,
-          disableOnInteraction: false,
-        }}
-          modules={[Autoplay,Navigation]}
-          className="home-page-category-slider-one"
-        >
-          <SwiperSlide className="home-page-category-sliderOne-item">Slide 1</SwiperSlide>
-          <SwiperSlide className="home-page-category-sliderOne-item">Slide 2</SwiperSlide>
-          <SwiperSlide className="home-page-category-sliderOne-item">Slide 3</SwiperSlide>
-          <SwiperSlide className="home-page-category-sliderOne-item">Slide 4</SwiperSlide>
-          <SwiperSlide className="home-page-category-sliderOne-item">Slide 5</SwiperSlide>
-          <SwiperSlide className="home-page-category-sliderOne-item">Slide 6</SwiperSlide>
-          <SwiperSlide className="home-page-category-sliderOne-item">Slide 7</SwiperSlide>
-          <SwiperSlide className="home-page-category-sliderOne-item">Slide 8</SwiperSlide>
-          <SwiperSlide className="home-page-category-sliderOne-item">Slide 9</SwiperSlide>
-        </Swiper>
-      </div>
-
-
-
+      <CategorySlider title="Novedades" products={newestProducts} />      
+      <CategorySlider title={categoryTitles.category1} products={category1Data} />
+      <CategorySlider title="¡Ofertas destacadas!" products={offers} />
+      <CategorySlider title={categoryTitles.category2} products={category2Data} />      
+      
     </div>
   );
 };
