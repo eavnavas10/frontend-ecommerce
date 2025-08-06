@@ -50,8 +50,7 @@
 .fb-icon-container:hover,
 .ig-icon-container:hover,
 .wa-icon-container:hover{
-  transition: transform 0.5s, color 0.5s;
-  transform: scale(1.05);
+  transition: color 0.5s;
   color: var(--text-color-five);
 }
 

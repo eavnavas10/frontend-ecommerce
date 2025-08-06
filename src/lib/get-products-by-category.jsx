@@ -11,6 +11,8 @@ export async function getProductsByCategory(categoryId, { page = 1, pageSize = 1
   params.append("fields[0]", "title");
   params.append("fields[1]", "oldPrice");
   params.append("fields[2]", "price");
+  params.append("fields[3]", "offer");
+  params.append("populate[sizes][fields][0]", "size");
 
   const res = await query(`products?${params.toString()}`);
   const data = await res.json();
@@ -20,6 +22,7 @@ export async function getProductsByCategory(categoryId, { page = 1, pageSize = 1
   return data.data.map((item) => {
     const firstImage = item.images?.[0];
     const imageUrl = firstImage?.formats?.small?.url || firstImage?.url || "";
+    const sizes = item.sizes?.map((size) => size.size) || [];
 
     return {
       id: item.id,
@@ -27,6 +30,8 @@ export async function getProductsByCategory(categoryId, { page = 1, pageSize = 1
       oldPrice: item.oldPrice || 0,
       price: item.price || 0,
       image: imageUrl ? `${STRAPI_HOST}${imageUrl}` : "",
+      offer: item.offer,
+      sizes,
     };
   });
 }

@@ -16,7 +16,6 @@ export const ProductDetails = () => {
   const { messageApi, contextHolder } = useLocalMessage();
 
   const handleAddToCart = () => {
-
     const productData = {
       id: product.id,
       title: product.title,
@@ -52,17 +51,23 @@ export const ProductDetails = () => {
       {contextHolder}
 
       <div className="product-details-img-container">
-        <img
-          className="product-details-image"
-          src={product.image || "/placeholder.svg"}
-          alt={product.title}
-        />
+        {Array.isArray(product.images) && product.images.length > 1 ? (
+          <h2>Theres a lot images</h2>
+        ) : (
+          <img
+            className="product-details-image"
+            src={product.image || "/placeholder.svg"}
+            alt={product.title}
+          />
+        )}
       </div>
 
       <div className="product-details-info">
         <h1 className="product-details-title">{product.title}</h1>
         <p className="product-details-description">{product.description}</p>
-        <p className="product-details-qty">Disponibilidad: {product.qty == 0 ? "Sin existencias" : product.qty}</p>
+        <p className="product-details-qty">
+          Disponibilidad: {product.qty == 0 ? "Sin existencias" : product.qty}
+        </p>
 
         <div className="sizes-container">
           {product.sizes.length > 0 && (
@@ -101,7 +106,10 @@ export const ProductDetails = () => {
             <span>Preguntar por Whatsapp</span>
             <UilWhatsapp color="var(--text-color-five)" size="1rem" />
           </button>
-          <button className="product-details-cart-button" onClick={handleAddToCart}>
+          <button
+            className="product-details-cart-button"
+            onClick={handleAddToCart}
+          >
             <span>Añadir a carrito</span>
             <UilShoppingCart color="var(--text-color-five)" size="1rem" />
           </button>

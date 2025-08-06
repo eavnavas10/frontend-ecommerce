@@ -1,4 +1,3 @@
-// src/components/CategorySlider.jsx
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
 import { Link } from "react-router-dom";
@@ -13,7 +12,7 @@ export const CategorySlider = ({ title, products }) => {
     <div className="category-slider-container">
       <h2 className="slider-title">{title}</h2>
       <Swiper
-        spaceBetween={30}
+        spaceBetween={10}
         centeredSlides={true}
         centeredSlidesBounds={true}
         navigation={true}
@@ -35,12 +34,42 @@ export const CategorySlider = ({ title, products }) => {
           <SwiperSlide key={product.id} className="category-slide">
             <Link to={`/producto/${product.id}`} className="category-card-link">
               <div className="category-card">
-                <img src={product.image} alt={product.title} />
+                <div className="category-card-image-container">
+                  {product.offer && <span className="category-offer-tag">Oferta</span>}
+                  <img
+                    src={product.image || "/placeholder.svg"}
+                    alt={product.title}
+                    className="category-card-image"
+                    loading="lazy"
+                  />
+                </div>
+
+                {/* Título */}
                 <p className="category-card-title">{product.title}</p>
+
+                {/* Tallas */}
+                {product.sizes && product.sizes.length > 0 && (
+                  <div className="category-sizes-container">
+                    <span className="size-text">
+                      {product.sizes.length > 1 ? "Tallas:" : "Talla:"}
+                    </span>
+                    <div className="category-sizes">
+                      {product.sizes.map((size, index) => (
+                        <span key={index} className="category-size-tag">
+                          {size}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Precios */}
                 <div className="category-card-price-container">
-                  <p className="category-card-price">Q{product.price}</p>
-                  { product.oldPrice > 0 && <p className="category-card-oldPrice">Q{product.oldPrice}</p> }                  
-                </div>                
+                  <p className="category-card-price">Q{product.price.toFixed(2)}</p>
+                  {product.oldPrice > 0 && (
+                    <p className="category-card-oldPrice">Q{product.oldPrice.toFixed(2)}</p>
+                  )}
+                </div>
               </div>
             </Link>
           </SwiperSlide>
