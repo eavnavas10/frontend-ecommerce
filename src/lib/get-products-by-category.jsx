@@ -9,9 +9,10 @@ export async function getProductsByCategory(categoryId, { page = 1, pageSize = 1
   params.append("pagination[pageSize]", pageSize);
   params.append("populate[images][fields][0]", "url");
   params.append("fields[0]", "title");
-  params.append("fields[1]", "oldPrice");
-  params.append("fields[2]", "price");
-  params.append("fields[3]", "offer");
+  params.append("fields[1]", "description");
+  params.append("fields[2]", "oldPrice");
+  params.append("fields[3]", "price");
+  params.append("fields[4]", "offer");
   params.append("populate[sizes][fields][0]", "size");
 
   const res = await query(`products?${params.toString()}`);
@@ -27,6 +28,7 @@ export async function getProductsByCategory(categoryId, { page = 1, pageSize = 1
     return {
       id: item.id,
       title: item.title || "Sin título",
+      description: item.description || "Sin descripción",
       oldPrice: item.oldPrice || 0,
       price: item.price || 0,
       image: imageUrl ? `${STRAPI_HOST}${imageUrl}` : "",

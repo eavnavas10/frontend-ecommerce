@@ -35,7 +35,7 @@ function App() {
           <Route path='/shipments' element = { <ShipmentsPage/>} />
           <Route path='/contact-us' element = { <ContactPage/>} />
           <Route path='/policies' element = { <PoliciesPage/>} />
-          <Route path="/producto/:id" element={<ProductDetails />} />
+          <Route path="/product/:id" element={<ProductDetails />} />
           <Route path='/*' element={ <NotFoundPage/> }/>        
         </Routes>
       </div>    

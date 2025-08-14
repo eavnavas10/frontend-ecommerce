@@ -8,7 +8,7 @@ export const ProductGrid = ({ products }) => {
         {products.map((product) => (
           <Link
             key={product.id}
-            to={`/producto/${product.id}`}
+            to={`/product/${product.id}`}
             className="product-card-link"
           >
             <article key={product.id} className="product-card">
@@ -28,15 +28,15 @@ export const ProductGrid = ({ products }) => {
                 {product.sizes.length == 0 && (
                   <p className="product-description">{product.description}</p>
                 )}
-                <div className="sizes-container">
+                <div className="product-sizes-container">
                   {product.sizes.length > 0 && (
-                    <span className="size-text">
+                    <span className="product-size-text">
                       {product.sizes.length > 1 ? "Tallas:" : "Talla:"}
                     </span>
                   )}
                   {product.sizes.length > 0 &&
                     product.sizes.map((size, index) => (
-                      <span key={index} className="size-tag">
+                      <span key={index} className="product-size-tag">
                         {size}
                       </span>
                     ))}

@@ -4,6 +4,11 @@ import { getProductById } from "../lib/get-product-by-id";
 import { UilWhatsapp, UilShoppingCart } from "@iconscout/react-unicons";
 import { useCart } from "../contexts/CartContext";
 import { useLocalMessage } from "../components/MessageAnt";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 import "./styles/ProductDetails.css";
 
 export const ProductDetails = () => {
@@ -12,7 +17,6 @@ export const ProductDetails = () => {
   const [product, setProduct] = useState(null);
   const [selectedSize, setSelectedSize] = useState("");
   const { addToCart } = useCart();
-
   const { messageApi, contextHolder } = useLocalMessage();
 
   const handleAddToCart = () => {
@@ -24,9 +28,18 @@ export const ProductDetails = () => {
       image: product.image,
       size: selectedSize,
     };
-
     addToCart(productData, selectedSize);
     messageApi.success(`${product.title} añadido al carrito`);
+  };
+
+  const handleWhatsAppClick = () => {
+    const phoneNumber = "50233347867";
+    const message = `Hola! estoy interesado/a en el producto: ${product.title}\n${window.location.href} me gustaría que me brindara más información`;
+    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+      message
+    )}`;
+
+    window.open(url, "_blank");
   };
 
   useEffect(() => {
@@ -46,13 +59,36 @@ export const ProductDetails = () => {
 
   if (!product) return <div>Cargando...</div>;
 
+  const hasMultipleImages =
+    Array.isArray(product.images) && product.images.length > 1;
+
   return (
     <div className="product-details-container">
       {contextHolder}
 
       <div className="product-details-img-container">
-        {Array.isArray(product.images) && product.images.length > 1 ? (
-          <h2>Theres a lot images</h2>
+        {hasMultipleImages ? (
+          <Swiper
+            modules={[Navigation, Pagination]}
+            navigation
+            pagination={{ clickable: true }}
+            spaceBetween={10}
+            slidesPerView={1}
+          >
+            {product.images.map((img, idx) => (
+              <SwiperSlide key={idx}>
+                <img
+                  className="product-details-image"
+                  src={
+                    img.startsWith("http")
+                      ? img
+                      : `${process.env.REACT_APP_API_URL}/${img}`
+                  }
+                  alt={`${product.title} ${idx + 1}`}
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
         ) : (
           <img
             className="product-details-image"
@@ -66,7 +102,7 @@ export const ProductDetails = () => {
         <h1 className="product-details-title">{product.title}</h1>
         <p className="product-details-description">{product.description}</p>
         <p className="product-details-qty">
-          Disponibilidad: {product.qty == 0 ? "Sin existencias" : product.qty}
+          Disponibilidad: {product.qty === 0 ? "Sin existencias" : product.qty}
         </p>
 
         <div className="sizes-container">
@@ -102,7 +138,10 @@ export const ProductDetails = () => {
         </div>
 
         <div className="product-details-buttons-container">
-          <button className="product-details-whatsapp-button">
+          <button
+            className="product-details-whatsapp-button"
+            onClick={handleWhatsAppClick}
+          >
             <span>Preguntar por Whatsapp</span>
             <UilWhatsapp color="var(--text-color-five)" size="1rem" />
           </button>

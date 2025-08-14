@@ -10,7 +10,7 @@ export const CategorySlider = ({ title, products }) => {
 
   return (
     <div className="category-slider-container">
-      <h2 className="slider-title">{title}</h2>
+      <h2 className="category-slider-title">{title}</h2>
       <Swiper
         spaceBetween={10}
         centeredSlides={true}
@@ -21,9 +21,9 @@ export const CategorySlider = ({ title, products }) => {
           disableOnInteraction: false,
         }}
         breakpoints={{
-          320: { slidesPerView: 2 },
-          480: { slidesPerView: 3 },
-          768: { slidesPerView: 4 },
+          390: { slidesPerView: 2 },
+          580: { slidesPerView: 3 },
+          790: { slidesPerView: 4 },
           1024: { slidesPerView: 5 },
           1280: { slidesPerView: 5 },
         }}
@@ -32,10 +32,12 @@ export const CategorySlider = ({ title, products }) => {
       >
         {products.map((product) => (
           <SwiperSlide key={product.id} className="category-slide">
-            <Link to={`/producto/${product.id}`} className="category-card-link">
-              <div className="category-card">
+            <Link to={`/product/${product.id}`} className="category-card-link">
+              <article className="category-card">
                 <div className="category-card-image-container">
-                  {product.offer && <span className="category-offer-tag">Oferta</span>}
+                  {product.offer && (
+                    <span className="category-card-offer-tag">Oferta</span>
+                  )}
                   <img
                     src={product.image || "/placeholder.svg"}
                     alt={product.title}
@@ -44,33 +46,38 @@ export const CategorySlider = ({ title, products }) => {
                   />
                 </div>
 
-                {/* Título */}
-                <p className="category-card-title">{product.title}</p>
+                <div className="category-card-info">
+                  <p className="category-card-title">{product.title}</p>
+                  {product.sizes.length == 0 && (
+                    <p className="category-card-description">
+                      {product.description}
+                    </p>
+                  )}
 
-                {/* Tallas */}
-                {product.sizes && product.sizes.length > 0 && (
-                  <div className="category-sizes-container">
-                    <span className="size-text">
-                      {product.sizes.length > 1 ? "Tallas:" : "Talla:"}
-                    </span>
-                    <div className="category-sizes">
+                  {product.sizes && product.sizes.length > 0 && (
+                    <div className="category-card-sizes-container">
+                      <span className="category-card-size-text">
+                        {product.sizes.length > 1 ? "Tallas:" : "Talla:"}
+                      </span>
                       {product.sizes.map((size, index) => (
-                        <span key={index} className="category-size-tag">
+                        <span key={index} className="category-card-size-tag">
                           {size}
                         </span>
                       ))}
                     </div>
-                  </div>
-                )}
-
-                {/* Precios */}
-                <div className="category-card-price-container">
-                  <p className="category-card-price">Q{product.price.toFixed(2)}</p>
-                  {product.oldPrice > 0 && (
-                    <p className="category-card-oldPrice">Q{product.oldPrice.toFixed(2)}</p>
                   )}
+                  <div className="category-card-price-container">
+                    <p className="category-card-price">
+                      Q{product.price.toFixed(2)}
+                    </p>
+                    {product.oldPrice > 0 && (
+                      <p className="category-card-oldPrice">
+                        Q{product.oldPrice.toFixed(2)}
+                      </p>
+                    )}
+                  </div>
                 </div>
-              </div>
+              </article>
             </Link>
           </SwiperSlide>
         ))}
